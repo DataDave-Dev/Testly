@@ -1,0 +1,57 @@
+name: Nueva funcionalidad
+description: Propone una funcionalidad o mejora
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema o motivación
+      description: Qué falta o qué no funciona bien sin esto.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Qué harías para resolverlo.
+    validations:
+      required: true
+
+  - type: input
+    id: rf
+    attributes:
+      label: RF relacionado
+      description: RF del PRD si ya existe, o "nuevo" si está fuera del alcance actual.
+      placeholder: "ej. RF-14, o nuevo"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área afectada
+      options:
+        - Landing
+        - Editor / generación de pruebas
+        - Historial
+        - Autenticación (magic link)
+        - Backend / API
+        - Otro
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: Opcional — otras formas de resolverlo que descartaste y por qué.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmaciones
+      options:
+        - label: Revisé que no exista ya un issue igual
+          required: true

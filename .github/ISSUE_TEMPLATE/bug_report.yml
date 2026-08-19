@@ -1,0 +1,59 @@
+name: Bug
+description: Reporta un error o comportamiento inesperado
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción del bug
+      description: Qué pasó y qué esperabas que pasara.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      description: Paso a paso, desde cero.
+      placeholder: |
+        1. Ir a...
+        2. Pegar código...
+        3. Ver error...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área afectada
+      options:
+        - Landing
+        - Editor / generación de pruebas
+        - Historial
+        - Autenticación (magic link)
+        - Backend / API
+        - Otro
+    validations:
+      required: true
+
+  - type: input
+    id: rf
+    attributes:
+      label: RF relacionado
+      description: Si aplica, el requisito funcional del PRD (ej. RF-07).
+      placeholder: "ej. RF-07"
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Capturas / logs
+      description: Lo que ayude a reproducir — captura, mensaje de error, consola.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmaciones
+      options:
+        - label: Revisé que no exista ya un issue igual
+          required: true
