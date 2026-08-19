@@ -92,16 +92,16 @@ Fuente: [04-plan.md](04-plan.md), [08-limites.md](08-limites.md) sección 1.
 
 ## Administrador
 
-**Product Owner asignado; Scrum Master pendiente.**
+**Product Owner y Scrum Master asignados.**
 
 | Rol | Responsabilidad | Quién |
 |---|---|---|
-| Product Owner | Prioriza el backlog contra el PRD, decide qué entra a cada sprint | Alonso David de León Rodarte |
-| Scrum Master | Facilita ceremonias, quita bloqueos | Por asignar |
+| Product Owner | Prioriza el backlog contra el PRD, decide qué entra a cada sprint | Osmar Emilio Solís Olivares |
+| Scrum Master | Facilita ceremonias, quita bloqueos | Isela Esmeralda Guerrero Martínez |
 | Equipo de desarrollo | Implementa el sprint backlog | Todos, incluido el PO |
 
 En equipo de 6, PO y Scrum Master también pueden tomar tareas de desarrollo.
-Alonso es PO y developer a la vez: no autoaprueba su propio código, otra
+Osmar es PO y developer a la vez: no autoaprueba su propio código, otra
 persona del equipo revisa igual.
 
 Fuente: [07-metodologia.md](07-metodologia.md) sección 2.
@@ -127,8 +127,8 @@ compromiso del equipo con lo establecido en esta carta.
 
 | Rol | Nombre | Firma | Fecha |
 |---|---|---|---|
-| Product Owner | Alonso David de León Rodarte | | |
-| Scrum Master | Por asignar | | |
+| Product Owner | Osmar Emilio Solís Olivares | | |
+| Scrum Master | Isela Esmeralda Guerrero Martínez | | |
 
 ## Historial de versiones
 
@@ -138,3 +138,5 @@ compromiso del equipo con lo establecido en esta carta.
 | 0.2 | 2026-08-19 | Se agrega beneficio "Honestidad frente a pruebas de mentira" (RF-24), heurística estática que detecta pruebas tautológicas sin ejecutar código |
 | 0.3 | 2026-08-19 | **Product Owner asignado: Alonso David de León Rodarte**, también developer. Scrum Master sigue por asignar |
 | 0.4 | 2026-08-19 | Se agrega sección Firma (PO + Scrum Master), elemento que faltaba según la presentación de apoyo de la carta sponsor ([docs/apoyo](../apoyo/)) |
+| 0.5 | 2026-08-19 | **Scrum Master asignada: Isela Esmeralda Guerrero Martínez** |
+| 0.6 | 2026-08-19 | **Product Owner asignado: Osmar Emilio Solís Olivares** |
