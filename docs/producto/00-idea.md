@@ -40,7 +40,7 @@ los casos, no solo el resultado.
 | Verificación de las pruebas | Reglas por framework (RF-20) + heurística de pruebas tautológicas (RF-24), no ejecución | Consecuencia directa de no ejecutar. Ver riesgos 1 y 4 |
 | Cuentas | **Opcional.** Sin cuenta: 3 generaciones/día por IP, sin historial. Con cuenta: cuota mayor + historial | Bajar la fricción para que la landing convierta; el costo se controla por IP + Turnstile en vez de por login |
 | Entrega | Copiar y descargar el archivo de pruebas | Sin esto el estudiante retranscribe a mano y la herramienta estorba |
-| Stack | Astro (SSR) + React + Tailwind + Turso + Better Auth, en Cloudflare Workers | Preferencia del equipo; comparación por capa en [02-arquitectura.md](02-arquitectura.md). Cloudflare sobre Vercel: sin límite de tiempo de pared en el streaming. Turso porque es SQLite en el edge, mismo criterio de latencia |
+| Stack | Astro (SSR) + React + Tailwind + Turso + Better Auth, en Cloudflare Workers | Preferencia del equipo; comparación por capa en [02-arquitectura.md](../arquitectura/02-arquitectura.md). Cloudflare sobre Vercel: sin límite de tiempo de pared en el streaming. Turso porque es SQLite en el edge, mismo criterio de latencia |
 | Lenguajes | Python, JavaScript/TypeScript (MVP). Java y C/C++ quedan fuera del alcance inicial | Acota el conjunto de evaluación y la calibración de la Fase 2 a lo que el equipo puede validar bien en un semestre; Java y C/C++ quedan como trabajo futuro |
 | Frameworks | pytest, Vitest (MVP). JUnit 5 y GoogleTest quedan fuera del alcance inicial junto con Java y C/C++ | Uno por defecto por lenguaje, cambiable por el usuario |
 | Contexto | Proyecto escolar / FIME | Define el formato de la documentación y el alcance realista |
@@ -56,7 +56,7 @@ sobre el diseño del código—, pero no se promete como sección.
    función equivocado y el estudiante recibe algo roto. Es el riesgo central del
    producto y la interfaz tiene que ser honesta al respecto.
 2. **Costo por uso.** Cada análisis es una llamada de pago, y generar código es
-   salida larga: más cara que explicar. Ver [03-costos.md](03-costos.md).
+   salida larga: más cara que explicar. Ver [03-costos.md](../costos/03-costos.md).
 3. **Uso como "hazme la tarea".** Más agudo que en la versión anterior de esta
    idea: si la tarea del profesor es *escribir pruebas unitarias*, esta
    herramienta la hace. Se aborda de frente en el PRD, sección 9, sin fingir que
@@ -70,5 +70,5 @@ sobre el diseño del código—, pero no se promete como sección.
 5. **Abuso del flujo sin cuenta.** Al no exigir login para generar, alguien
    puede intentar automatizar peticiones contra la cuota gratis. Se mitiga con
    Cloudflare (regla de rate limiting por IP + Turnstile en el botón de
-   generar), no con identidad. Ver [02-arquitectura.md](02-arquitectura.md),
+   generar), no con identidad. Ver [02-arquitectura.md](../arquitectura/02-arquitectura.md),
    sección 7.

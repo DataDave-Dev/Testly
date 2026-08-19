@@ -4,7 +4,7 @@ Fecha: 2026-08-18
 Versión: 1.2 — **cerrado**: el equipo paga la API directamente (sección 7).
 Nota: el alcance de lenguajes se redujo después de escribir este documento —
 el MVP cubre Python y JavaScript/TypeScript, Java y C/C++ quedan fuera (ver
-[01-prd.md](01-prd.md), sección 5). Las menciones a "cuatro lenguajes" abajo
+[01-prd.md](../producto/01-prd.md), sección 5). Las menciones a "cuatro lenguajes" abajo
 reflejan el alcance en el momento en que se investigó; se ajustan donde
 cambian una conclusión, no en toda mención cosmética.
 Todos los datos verificados contra documentación oficial en esta fecha.
@@ -249,7 +249,7 @@ independientemente del proveedor final).
 
 - [x] ¿Se reabre la decisión de validar sintaxis? Sí, y ya se resolvió: reglas
       por framework, sin parseo pesado. Ver
-      [02-arquitectura.md](02-arquitectura.md) sección 2.11 y RF-20.
+      [02-arquitectura.md](../arquitectura/02-arquitectura.md) sección 2.11 y RF-20.
 - [x] ¿Quién habla con el profesor para los créditos de Google Cloud Education?
       Nadie: el equipo paga directo, no hace falta el trámite.
 - [x] ¿Alguien manda el correo a `contactouni@uanl.mx`? No es necesario para el

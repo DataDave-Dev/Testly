@@ -253,10 +253,10 @@ en producción.
 
 Si aun con Cloudflare el peor caso da problemas, hay dos salidas, en orden de
 esfuerzo: recortar el peor caso bajando `effort` (que además abarata, ver
-[03-costos.md](03-costos.md)), o pasar al plan de $5/mes de Cloudflare, que sube
+[03-costos.md](../costos/03-costos.md)), o pasar al plan de $5/mes de Cloudflare, que sube
 a 30 segundos de CPU por defecto (configurable hasta 5 minutos). Ese plan de
 $5/mes, para contexto, cuesta más en cuatro meses que toda la API del modelo
-durante el semestre — ver [05-proveedor-llm.md](05-proveedor-llm.md), sección 4.3.
+durante el semestre — ver [05-proveedor-llm.md](../costos/05-proveedor-llm.md), sección 4.3.
 
 ### 2.9 Stack recomendado — resumen
 
@@ -306,12 +306,12 @@ mezclado con fixtures de pytest (mezcla de framework, error común que no
 detecta un parser de sintaxis porque es sintácticamente válido). Para Vitest:
 que el archivo importe de `vitest` (`describe`, `it`, `expect`) y no de `jest`.
 
-(Java y C/C++ quedan fuera del MVP — ver [01-prd.md](01-prd.md), sección 5 —
+(Java y C/C++ quedan fuera del MVP — ver [01-prd.md](../producto/01-prd.md), sección 5 —
 así que sus reglas, JUnit 5 y GoogleTest, quedan documentadas aquí solo como
 referencia para cuando se agreguen.)
 
 Esto ataca el modo de falla real documentado en
-[05-proveedor-llm.md](05-proveedor-llm.md), sección 2, sin agregar
+[05-proveedor-llm.md](../costos/05-proveedor-llm.md), sección 2, sin agregar
 infraestructura ni depender del hosting. Si la Fase 2 muestra que no alcanza,
 la escalada es tree-sitter compilado a WASM (funciona en Cloudflare, cuesta
 unos 2-4 MB de bundle) o un servicio aparte con compiladores reales. Decisión
@@ -440,7 +440,7 @@ export const auth = betterAuth({
   repositorio, sin confirmar estabilidad a la fecha de este documento) que
   ahorre escribir `marcarUsuarioEliminado` a mano.
 
-Ver [08-limites.md](08-limites.md) para la decisión de producto detrás de esto.
+Ver [08-limites.md](../gestion/08-limites.md) para la decisión de producto detrás de esto.
 
 ## 3. Estructura de carpetas (decidida: opción A, ver [06-estructura-carpetas.md](06-estructura-carpetas.md))
 
@@ -524,7 +524,7 @@ El prompt de sistema es el activo pedagógico del proyecto. Es lo que separa
   identificadores. Así se puede cachear y se paga a una décima parte. Ojo con el
   mínimo cacheable, que depende del modelo (Opus 5: 512 tokens; Sonnet 5: 1,024;
   Haiku 4.5: 4,096) y que, por debajo del umbral, falla **en silencio**. Ver
-  [03-costos.md](03-costos.md), sección 6.4. El
+  [03-costos.md](../costos/03-costos.md), sección 6.4. El
   lenguaje y el framework van en el mensaje del usuario, no en el sistema.
 - **El código va delimitado y marcado como datos.** Un estudiante puede pegar
   código que contenga comentarios con instrucciones. El prompt debe indicar
@@ -593,7 +593,7 @@ endpoint y el nombre del archivo descargado.
 hay una clara, se usa un genérico.
 
 Java (JUnit 5) y C/C++ (GoogleTest, Catch2) quedan fuera del MVP (ver
-[01-prd.md](01-prd.md), sección 5); agregarlos es sumar dos filas a esta tabla
+[01-prd.md](../producto/01-prd.md), sección 5); agregarlos es sumar dos filas a esta tabla
 y sus reglas de validación (sección 2.11).
 
 ### 5.3 Boceto de la petición
@@ -748,7 +748,7 @@ primera petición del usuario es peor que uno que no arranca.
 
 `LLM_MODEL` y las cuotas quedan como variables de entorno con su valor final ya
 puesto, no como placeholders: son la configuración decidida en
-[03-costos.md](03-costos.md), sección 9. Siguen siendo variables (no
+[03-costos.md](../costos/03-costos.md), sección 9. Siguen siendo variables (no
 constantes en código) porque `LLM_EFFORT` es lo único que la Fase 2 todavía
 puede mover, y porque si el hosting corta por duración, bajarlo es la primera
 salida.

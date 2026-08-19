@@ -94,7 +94,7 @@ para enseñar pruebas con el código real de sus grupos.
 
 - Soporte de Java y C/C++ (JUnit 5, GoogleTest/Catch2). El MVP cubre Python y
   JavaScript/TypeScript; los otros dos quedan como trabajo futuro, ver
-  [04-plan.md](04-plan.md)
+  [04-plan.md](../gestion/04-plan.md)
 - Ejecución de las pruebas generadas
 - Reporte de cobertura
 - Detección de errores o análisis de estilo del código de entrada
@@ -145,7 +145,7 @@ sección 5). Si se agregan más adelante, es la misma tabla con dos filas más.
 | RF-20 | El sistema valida contra reglas por framework (imports correctos, sin mezclar versiones) antes de mostrar el resultado como válido; si falla, lo marca visualmente sin bloquear la descarga |
 | RF-21 | La landing explica qué hace la plataforma y qué son las pruebas unitarias, con al menos un ejemplo, antes de llevar al editor |
 | RF-22 | El flujo sin sesión pasa por un desafío anti-bot (Cloudflare Turnstile) antes de generar |
-| RF-23 | El usuario con sesión puede eliminar su cuenta. La eliminación es un **soft delete**: no se borra físicamente, se marca como eliminada y el usuario deja de poder iniciar sesión con ella. Ver [02-arquitectura.md](02-arquitectura.md), sección 2.13, y [08-limites.md](08-limites.md) |
+| RF-23 | El usuario con sesión puede eliminar su cuenta. La eliminación es un **soft delete**: no se borra físicamente, se marca como eliminada y el usuario deja de poder iniciar sesión con ella. Ver [02-arquitectura.md](../arquitectura/02-arquitectura.md), sección 2.13, y [08-limites.md](../gestion/08-limites.md) |
 | RF-24 | El sistema aplica una heurística estática que detecta patrones típicos de pruebas tautológicas (`assert True`, aserciones sobre constantes, mocks que retornan justo lo que la prueba afirma) y marca visualmente la prueba como sospechosa, sin bloquear la descarga. No requiere ejecutar código — mismo criterio de costo y seguridad que RF-20 |
 
 ## 8. Requisitos no funcionales
@@ -164,7 +164,7 @@ sección 5). Si se agregan más adelante, es la misma tabla con dos filas más.
 RNF-01 sube de 30 a 45 segundos respecto de la versión anterior: generar un
 archivo de pruebas es una respuesta considerablemente más larga que explicar
 código. Esto endurece el requisito de duración de función del hosting; ver
-[02-arquitectura.md](02-arquitectura.md), sección 2.8.
+[02-arquitectura.md](../arquitectura/02-arquitectura.md), sección 2.8.
 
 ## 9. Criterios de éxito
 
@@ -174,7 +174,7 @@ código. Esto endurece el requisito de duración de función del hosting; ver
 | Cobertura de casos | Sobre el conjunto de evaluación de 20 funciones con casos documentados, las pruebas generadas cubren el caso feliz, el borde y el de error en al menos 15 |
 | Validez | Al ejecutar a mano las pruebas de esas 20, al menos 17 corren sin errores de sintaxis, import o nombre |
 | Pruebas vacías | Cero pruebas tautológicas (que pasan sin importar la implementación) en la muestra evaluada. Primera barrera: heurística RF-24 |
-| Costo | El costo promedio por generación se mantiene dentro del presupuesto de [03-costos.md](03-costos.md) |
+| Costo | El costo promedio por generación se mantiene dentro del presupuesto de [03-costos.md](../costos/03-costos.md) |
 | Uso real | Al menos 10 estudiantes ajenos al equipo generan al menos una vez |
 | Aprendizaje percibido | En encuesta breve, la mayoría reporta entender mejor qué casos vale la pena probar |
 
