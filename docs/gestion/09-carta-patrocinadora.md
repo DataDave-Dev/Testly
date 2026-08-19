@@ -10,7 +10,7 @@ documentado en `docs/`. Fuente por sección anotada al margen.
 
 **Testly — Generador pedagógico de pruebas unitarias (IA Beta)**
 
-Fuente: [00-idea.md](00-idea.md), [01-prd.md](01-prd.md).
+Fuente: [00-idea.md](../producto/00-idea.md), [01-prd.md](../producto/01-prd.md).
 
 ## Identificación del beneficio del proyecto
 
@@ -25,7 +25,7 @@ Fuente: [00-idea.md](00-idea.md), [01-prd.md](01-prd.md).
   que detecta y marca pruebas tautológicas (`assert True` y similares) antes
   de entregarlas, sin necesidad de ejecutar código.
 
-Fuente: [00-idea.md](00-idea.md) sección "Pitch", [01-prd.md](01-prd.md)
+Fuente: [00-idea.md](../producto/00-idea.md) sección "Pitch", [01-prd.md](../producto/01-prd.md)
 sección 1-2.
 
 ## Lista de documentos o productos esperados
@@ -43,7 +43,7 @@ sección 1-2.
    costos, plan, metodología, límites).
 7. **Presentación final del prototipo.**
 
-Fuente: [02-arquitectura.md](02-arquitectura.md), [01-prd.md](01-prd.md)
+Fuente: [02-arquitectura.md](../arquitectura/02-arquitectura.md), [01-prd.md](../producto/01-prd.md)
 sección 5.
 
 ## Identificación de medidas clave de éxito
@@ -62,7 +62,7 @@ sección 5.
 7. **Uso real:** al menos 10 estudiantes ajenos al equipo generan al menos
    una vez.
 
-Fuente: [01-prd.md](01-prd.md) sección 9.
+Fuente: [01-prd.md](../producto/01-prd.md) sección 9.
 
 ## Prioridad en relación a otros proyectos
 
@@ -137,4 +137,4 @@ compromiso del equipo con lo establecido en esta carta.
 | 0.1 | 2026-08-19 | Primera versión, adaptada de la carta sponsor original al estado actual del proyecto. Roles Scrum sin asignar persona, dejado pendiente a propósito |
 | 0.2 | 2026-08-19 | Se agrega beneficio "Honestidad frente a pruebas de mentira" (RF-24), heurística estática que detecta pruebas tautológicas sin ejecutar código |
 | 0.3 | 2026-08-19 | **Product Owner asignado: Alonso David de León Rodarte**, también developer. Scrum Master sigue por asignar |
-| 0.4 | 2026-08-19 | Se agrega sección Firma (PO + Scrum Master), elemento que faltaba según la presentación de apoyo de la carta sponsor ([docs/apoyo](apoyo/)) |
+| 0.4 | 2026-08-19 | Se agrega sección Firma (PO + Scrum Master), elemento que faltaba según la presentación de apoyo de la carta sponsor ([docs/apoyo](../apoyo/)) |

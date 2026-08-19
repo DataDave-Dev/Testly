@@ -26,7 +26,7 @@ Propuesta, el equipo confirma quién toma cada uno:
 
 | Rol | Responsabilidad | Quién |
 |---|---|---|
-| Product Owner | Prioriza el backlog contra el PRD ([01-prd.md](01-prd.md)), decide qué entra a cada sprint, es la voz de "qué necesita el proyecto" frente al profesor | Alonso David de León Rodarte |
+| Product Owner | Prioriza el backlog contra el PRD ([01-prd.md](../producto/01-prd.md)), decide qué entra a cada sprint, es la voz de "qué necesita el proyecto" frente al profesor | Alonso David de León Rodarte |
 | Scrum Master | Facilita las ceremonias, quita bloqueos, cuida que el sprint no se sobrecargue | Por asignar |
 | Equipo de desarrollo | El resto: implementa el sprint backlog | Todos, incluido el PO |
 
@@ -34,7 +34,7 @@ En equipo de 6, PO y Scrum Master pueden también tomar tareas de desarrollo;
 no son roles de tiempo completo aquí. Alonso es PO y developer a la vez: no
 autoaprueba su propio código, otra persona del equipo revisa igual.
 
-### Áreas técnicas (de [02-arquitectura.md](02-arquitectura.md))
+### Áreas técnicas (de [02-arquitectura.md](../arquitectura/02-arquitectura.md))
 
 Reparto sugerido por pieza del stack, para saber quién arranca qué en el
 primer sprint de cada fase — no es asignación fija de todo el semestre:
@@ -87,12 +87,12 @@ garantizada.
 ## 5. Backlog
 
 - **Product Backlog:** sale de los requisitos funcionales y no funcionales de
-  [01-prd.md](01-prd.md) (RF-01 a RF-23, RNF-01 a RNF-08) más las tareas
+  [01-prd.md](../producto/01-prd.md) (RF-01 a RF-23, RNF-01 a RNF-08) más las tareas
   técnicas de cada fase en 04-plan.md. El Product Owner lo prioriza.
 - **Sprint Backlog:** subconjunto tomado en Sprint Planning, acotado a la fase
   vigente.
 - Cada tarea del backlog referencia el RF/RNF o la sección de
-  [02-arquitectura.md](02-arquitectura.md) que resuelve.
+  [02-arquitectura.md](../arquitectura/02-arquitectura.md) que resuelve.
 
 ## 6. Definición de terminado (Definition of Done)
 
@@ -100,7 +100,7 @@ Una tarea se marca hecha cuando:
 
 - El código está revisado por al menos otra persona del equipo
 - Tiene pruebas unitarias si toca `src/lib/` (ver sección 2.12 de
-  [02-arquitectura.md](02-arquitectura.md))
+  [02-arquitectura.md](../arquitectura/02-arquitectura.md))
 - Si cambia una decisión ya documentada, el doc correspondiente en `docs/` se
   actualiza en el mismo sprint, no después
 

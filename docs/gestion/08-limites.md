@@ -38,13 +38,13 @@ borrado físico.
 - El usuario no puede volver a iniciar sesión con esa cuenta.
 
 Detalle de implementación (hook `beforeDelete` de Better Auth) en
-[02-arquitectura.md](02-arquitectura.md), sección 2.13.
+[02-arquitectura.md](../arquitectura/02-arquitectura.md), sección 2.13.
 
 ## 3. Acceso
 
 **Abierto a cualquiera, sin restricción de dominio ni institución.** No se
 limita a correo `@uanl.mx` ni a ningún otro dominio. Esto ya era el
-comportamiento documentado en RF-03 ([01-prd.md](01-prd.md)) — este punto lo
+comportamiento documentado en RF-03 ([01-prd.md](../producto/01-prd.md)) — este punto lo
 deja explícito como decisión, no como omisión.
 
 ## 4. Tope de salida del modelo
@@ -52,8 +52,8 @@ deja explícito como decisión, no como omisión.
 **`LLM_MAX_OUTPUT_TOKENS=16000`.** Si una respuesta se corta antes de cerrar
 el bloque cercado del archivo de pruebas, la descarga sale truncada sin
 avisar — es la advertencia ya anotada en
-[02-arquitectura.md](02-arquitectura.md), sección 5.3, y en
-[03-costos.md](03-costos.md), sección 8. Este documento lo formaliza como
+[02-arquitectura.md](../arquitectura/02-arquitectura.md), sección 5.3, y en
+[03-costos.md](../costos/03-costos.md), sección 8. Este documento lo formaliza como
 límite de producto, no solo como detalle de la petición al modelo. Registrar
 el `stop_reason` de cada llamada sigue siendo obligatorio para detectar
 truncamiento.
@@ -64,12 +64,12 @@ Referencia rápida; el detalle y la fuente de cada uno vive en su documento:
 
 | Límite | Valor | Fuente |
 |---|---|---|
-| Tamaño de código de entrada | 12,000 caracteres (~3,000 tokens) | RF-06, [01-prd.md](01-prd.md) |
+| Tamaño de código de entrada | 12,000 caracteres (~3,000 tokens) | RF-06, [01-prd.md](../producto/01-prd.md) |
 | Cuota con sesión | 10 generaciones / 30 días | RF-17 |
 | Cuota sin sesión | 3 / día por IP | RF-17 |
 | Tiempo de respuesta | <45s en 90% de casos | RNF-01 |
-| Presupuesto | $20 USD, todo el semestre | [03-costos.md](03-costos.md) |
-| CPU por petición (Cloudflare gratis) | 10ms | [02-arquitectura.md](02-arquitectura.md) 2.8 |
+| Presupuesto | $20 USD, todo el semestre | [03-costos.md](../costos/03-costos.md) |
+| CPU por petición (Cloudflare gratis) | 10ms | [02-arquitectura.md](../arquitectura/02-arquitectura.md) 2.8 |
 | Bundle comprimido (Cloudflare gratis) | 3MB | 02-arquitectura.md 2.11 |
 | Turso gratis | 5GB, 500M lecturas/mes, 10M escrituras/mes | 02-arquitectura.md 2.4 |
 | Lenguajes soportados | Python, JavaScript/TypeScript (MVP) | 01-prd.md sección 5 |

@@ -17,7 +17,7 @@ son las que sostienen los criterios de éxito del PRD.
 
 - Confirmar equipo y reparto de responsabilidades
 - ~~Conseguir acceso y presupuesto de la API del modelo~~ — **resuelto**: el
-  equipo paga, $20 USD ya disponibles (ver [03-costos.md](03-costos.md))
+  equipo paga, $20 USD ya disponibles (ver [03-costos.md](../costos/03-costos.md))
 - ~~Definir límite de cuota por usuario~~ — **resuelto**: 10 por 30 días con
   sesión, 3/día por IP sin sesión
 - Armar el conjunto de evaluación: **20 funciones** en los lenguajes del MVP
@@ -44,7 +44,7 @@ y no se puede improvisar en la Fase 2.
   `localhost`. Cloudflare no debería cortarlo por tiempo de pared, pero hay que
   verificarlo igual: es la prueba que antes habría fallado en Vercel gratis
 - Aserciones de validación por framework (ver
-  [02-arquitectura.md](02-arquitectura.md), sección 2.11), con sus pruebas
+  [02-arquitectura.md](../arquitectura/02-arquitectura.md), sección 2.11), con sus pruebas
   unitarias
 - `frameworks.ts` y `extraerTest.ts` con sus pruebas unitarias
 - Endpoint `/api/generar` funcionando de extremo a extremo, **sin sesión**
@@ -70,7 +70,7 @@ Es lógica, no adorno.
 ### Fase 2 — Calibración
 
 El modelo de producción ya está decidido: **Sonnet 5** (ver
-[03-costos.md](03-costos.md), sección 6.1). Esta fase ya no compara modelos
+[03-costos.md](../costos/03-costos.md), sección 6.1). Esta fase ya no compara modelos
 para elegir uno; mide `effort` sobre el modelo decidido, y opcionalmente reúne
 un dato de respaldo con Opus 5 por si Sonnet 5 no alcanza el criterio de
 validez más adelante.
@@ -90,7 +90,7 @@ validez más adelante.
   RF-09 y no pruebas inventadas
 - Elegir `effort` por defecto, con los números en la mano
 - Iterar el prompt de sistema con base en lo que falle
-- Actualizar [03-costos.md](03-costos.md) con los tokens medidos y el
+- Actualizar [03-costos.md](../costos/03-costos.md) con los tokens medidos y el
   `stop_reason` de cada llamada
 
 **Entregable:** tabla de validez y costo por nivel de `effort`, y decisión
@@ -108,7 +108,7 @@ mano combinación por combinación.
 - Better Auth: sesión por enlace mágico (correo, sin contraseña), inicio y
   cierre de sesión
 - Aislamiento manual por `user_id` en `src/lib/db/generations.ts` (sin RLS,
-  ver [02-arquitectura.md](02-arquitectura.md), sección 2.4)
+  ver [02-arquitectura.md](../arquitectura/02-arquitectura.md), sección 2.4)
 - Guardado de cada generación con sus tokens, **solo si hay sesión**
 - Historial: lista, detalle, eliminación
 - Cuota por usuario con sesión, validada en el servidor
@@ -161,7 +161,7 @@ crea. El flujo sin sesión, que ya funcionaba desde la Fase 1, no cambia.
 | El equipo no domina Astro con SSR | Medio | Fase 1 corta y temprana; si el adapter da problemas, se detecta con semanas de margen |
 | Alcance que crece (ejecutar pruebas, cobertura, mocks) | Medio | La lista de "fuera del MVP" del PRD es la defensa. "Ejecutar las pruebas" es la que más va a tentar: implica sandbox y es un proyecto entero aparte |
 | Turso o Better Auth cambian condiciones del plan gratuito durante el semestre | Bajo | El consumo del proyecto está muy por debajo del margen gratuito de Turso (sección 2.4 de arquitectura); verificar igual antes de la presentación |
-| Agregar Java o C/C++ más adelante resulta más caro de calibrar de lo previsto | Bajo | Quedan fuera del MVP desde [01-prd.md](01-prd.md), sección 5. Si se agregan después de la Fase 5, repiten la Fase 2 (conjunto de evaluación propio, medición de validez) antes de anunciarse como soportados |
+| Agregar Java o C/C++ más adelante resulta más caro de calibrar de lo previsto | Bajo | Quedan fuera del MVP desde [01-prd.md](../producto/01-prd.md), sección 5. Si se agregan después de la Fase 5, repiten la Fase 2 (conjunto de evaluación propio, medición de validez) antes de anunciarse como soportados |
 | Las 6 fases no caben en los ~7 sprints disponibles antes del 2026-12-01 | Alto | Fecha límite fija, no movible. Si un sprint se atrasa, se recorta primero la Fase 4 (interfaz), nunca la Fase 2 (calibración) ni la Fase 5 (prueba con usuarios) |
 
 ## Dependencias externas
