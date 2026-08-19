@@ -1,0 +1,28 @@
+nombre: promedio
+lenguaje: javascript
+framework_default: vitest
+
+atributos:
+  - retorno_escalar
+
+codigo: |
+  function promedio(numeros) {
+    if (numeros.length === 0) {
+      throw new Error("la lista no puede estar vacía");
+    }
+    return numeros.reduce((a, b) => a + b, 0) / numeros.length;
+  }
+
+casos:
+  - tipo: camino_feliz
+    descripcion: promedio de varios números
+    entrada: "promedio([1, 2, 3])"
+    esperado: "2"
+  - tipo: valor_limite
+    descripcion: arreglo con un solo elemento
+    entrada: "promedio([5])"
+    esperado: "5"
+  - tipo: entrada_invalida
+    descripcion: arreglo vacío no tiene promedio
+    entrada: "promedio([])"
+    esperado: "Error"

@@ -1,0 +1,28 @@
+nombre: dividir
+lenguaje: javascript
+framework_default: vitest
+
+atributos:
+  - lanza_excepcion
+
+codigo: |
+  function dividir(a, b) {
+    if (b === 0) {
+      throw new Error("no se puede dividir entre cero");
+    }
+    return a / b;
+  }
+
+casos:
+  - tipo: camino_feliz
+    descripcion: división normal
+    entrada: "dividir(10, 2)"
+    esperado: "5"
+  - tipo: valor_limite
+    descripcion: dividendo cero es válido
+    entrada: "dividir(0, 5)"
+    esperado: "0"
+  - tipo: entrada_invalida
+    descripcion: divisor cero lanza excepción explícita
+    entrada: "dividir(10, 0)"
+    esperado: "Error"

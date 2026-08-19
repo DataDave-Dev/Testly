@@ -1,0 +1,24 @@
+nombre: dependencia_red_db
+lenguaje: javascript
+tipo_dificultad: dependencia_red_db
+
+codigo: |
+  async function obtenerUsuario(id) {
+    const respuesta = await fetch(`https://api.ejemplo.com/usuarios/${id}`);
+    if (!respuesta.ok) {
+      throw new Error("no se pudo obtener el usuario");
+    }
+    return respuesta.json();
+  }
+
+motivo: >
+  Depende de una llamada de red real a un servicio externo. El PRD excluye
+  explícitamente del MVP la "generación de mocks para dependencias externas
+  complejas (red, base de datos)" (01-prd.md, sección 5) — es el ángulo de
+  RF-09 que los otros tres fragmentos difíciles del plan original no cubren.
+
+comportamiento_esperado: >
+  El sistema debe responder que el código no es apto para pruebas unitarias
+  sin mockear la red (RF-09), en vez de generar una prueba que intente
+  golpear la red real durante la ejecución o inventar un mock elaborado que
+  el MVP no promete.

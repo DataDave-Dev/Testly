@@ -1,0 +1,35 @@
+# Plantilla del manifest de evaluación — Testly
+#
+# Un archivo por función. El código vive en el mismo manifest para que Fase 2
+# tenga una sola fuente de verdad por función (código + casos esperados) al
+# automatizar la corrida contra el modelo.
+#
+# tipo de caso: camino_feliz | valor_limite | entrada_invalida
+
+nombre: nombre_de_la_funcion
+lenguaje: python            # python | javascript
+framework_default: pytest   # pytest | vitest (según 01-prd.md sección 6)
+
+# Atributos de la matriz que esta función cubre (design.md, Decisión 4):
+# retorno_escalar | retorno_coleccion | retorno_none | lanza_excepcion |
+# codigo_error | parametro_default | recursion
+atributos:
+  - retorno_escalar
+
+codigo: |
+  def nombre_de_la_funcion(x):
+      return x
+
+casos:
+  - tipo: camino_feliz
+    descripcion: descripción breve de qué cubre este caso
+    entrada: "x=1"
+    esperado: "1"
+  - tipo: valor_limite
+    descripcion: descripción breve
+    entrada: "x=0"
+    esperado: "0"
+  - tipo: entrada_invalida
+    descripcion: descripción breve
+    entrada: "x='a'"
+    esperado: "TypeError"

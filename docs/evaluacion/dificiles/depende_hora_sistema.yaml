@@ -1,0 +1,27 @@
+nombre: depende_hora_sistema
+lenguaje: javascript
+tipo_dificultad: depende_hora_sistema
+
+codigo: |
+  function saludoSegunHora() {
+    const hora = new Date().getHours();
+    if (hora < 12) {
+      return "Buenos días";
+    } else if (hora < 19) {
+      return "Buenas tardes";
+    } else {
+      return "Buenas noches";
+    }
+  }
+
+motivo: >
+  El resultado depende de `Date.now()` en el momento de la ejecución, no de
+  ningún argumento — la función no recibe la hora, la lee del sistema. El
+  código ya escrito no inyecta la dependencia de tiempo (eso sería un
+  refactor, fuera del alcance del MVP: la plataforma solo acepta código ya
+  escrito, no lo modifica).
+
+comportamiento_esperado: >
+  El sistema debe responder que el código no es apto para pruebas unitarias
+  deterministas sin inyección de dependencia de tiempo (RF-09), en vez de
+  generar una prueba que pase o falle según la hora real en que se ejecute.

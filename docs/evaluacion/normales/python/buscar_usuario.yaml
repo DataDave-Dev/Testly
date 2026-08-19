@@ -1,0 +1,27 @@
+nombre: buscar_usuario
+lenguaje: python
+framework_default: pytest
+
+atributos:
+  - retorno_none
+
+codigo: |
+  def buscar_usuario(usuarios, id_usuario):
+      for u in usuarios:
+          if u["id"] == id_usuario:
+              return u
+      return None
+
+casos:
+  - tipo: camino_feliz
+    descripcion: encuentra el usuario por id
+    entrada: 'buscar_usuario([{"id": 1, "nombre": "Ana"}], 1)'
+    esperado: '{"id": 1, "nombre": "Ana"}'
+  - tipo: valor_limite
+    descripcion: lista vacía nunca encuentra nada
+    entrada: "buscar_usuario([], 1)"
+    esperado: "None"
+  - tipo: entrada_invalida
+    descripcion: usuarios no es iterable
+    entrada: "buscar_usuario(None, 1)"
+    esperado: "TypeError"

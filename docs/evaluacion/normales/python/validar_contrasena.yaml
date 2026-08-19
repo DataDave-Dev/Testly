@@ -1,0 +1,28 @@
+nombre: validar_contrasena
+lenguaje: python
+framework_default: pytest
+
+atributos:
+  - codigo_error
+
+codigo: |
+  def validar_contrasena(contrasena):
+      if len(contrasena) < 8:
+          return (False, "la contraseña debe tener al menos 8 caracteres")
+      if not any(c.isdigit() for c in contrasena):
+          return (False, "la contraseña debe incluir al menos un dígito")
+      return (True, "")
+
+casos:
+  - tipo: camino_feliz
+    descripcion: contraseña válida no lanza excepción, retorna código de éxito
+    entrada: 'validar_contrasena("abcdef12")'
+    esperado: '(True, "")'
+  - tipo: valor_limite
+    descripcion: justo un carácter por debajo del mínimo de longitud
+    entrada: 'validar_contrasena("1234567")'
+    esperado: '(False, "la contraseña debe tener al menos 8 caracteres")'
+  - tipo: entrada_invalida
+    descripcion: entrada no es una cadena de texto
+    entrada: "validar_contrasena(None)"
+    esperado: "TypeError"

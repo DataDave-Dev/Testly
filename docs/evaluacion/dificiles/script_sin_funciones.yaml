@@ -1,0 +1,22 @@
+nombre: script_sin_funciones
+lenguaje: python
+tipo_dificultad: script_sin_funciones
+
+codigo: |
+  calificaciones = [85, 92, 78, 90]
+  promedio = sum(calificaciones) / len(calificaciones)
+  print(f"Promedio: {promedio}")
+  if promedio >= 80:
+      print("Aprobado")
+  else:
+      print("Reprobado")
+
+motivo: >
+  No hay ninguna función definida — todo es código a nivel de módulo con
+  efectos secundarios (print). No existe una unidad aislable para envolver
+  en un `def test_...`.
+
+comportamiento_esperado: >
+  El sistema debe responder que el código no es apto para pruebas unitarias
+  (RF-09) en lugar de inventar una función artificial alrededor del script
+  o generar pruebas sobre la salida de `print`.

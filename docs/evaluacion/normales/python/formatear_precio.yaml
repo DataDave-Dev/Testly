@@ -1,0 +1,26 @@
+nombre: formatear_precio
+lenguaje: python
+framework_default: pytest
+
+atributos:
+  - parametro_default
+
+codigo: |
+  def formatear_precio(monto, moneda="MXN"):
+      if monto < 0:
+          raise ValueError("el monto no puede ser negativo")
+      return f"{monto:.2f} {moneda}"
+
+casos:
+  - tipo: camino_feliz
+    descripcion: usa la moneda por defecto sin pasarla
+    entrada: "formatear_precio(99.5)"
+    esperado: '"99.50 MXN"'
+  - tipo: valor_limite
+    descripcion: monto cero es válido, con moneda explícita
+    entrada: 'formatear_precio(0, "USD")'
+    esperado: '"0.00 USD"'
+  - tipo: entrada_invalida
+    descripcion: monto negativo no es un precio válido
+    entrada: "formatear_precio(-10)"
+    esperado: "ValueError"
