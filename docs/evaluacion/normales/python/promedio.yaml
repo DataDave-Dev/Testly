@@ -1,0 +1,26 @@
+nombre: promedio
+lenguaje: python
+framework_default: pytest
+
+atributos:
+  - retorno_escalar
+
+codigo: |
+  def promedio(numeros):
+      if not numeros:
+          raise ValueError("la lista no puede estar vacía")
+      return sum(numeros) / len(numeros)
+
+casos:
+  - tipo: camino_feliz
+    descripcion: promedio de varios números
+    entrada: "promedio([1, 2, 3])"
+    esperado: "2.0"
+  - tipo: valor_limite
+    descripcion: lista con un solo elemento
+    entrada: "promedio([5])"
+    esperado: "5.0"
+  - tipo: entrada_invalida
+    descripcion: lista vacía no tiene promedio
+    entrada: "promedio([])"
+    esperado: "ValueError"

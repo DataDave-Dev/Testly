@@ -1,0 +1,28 @@
+nombre: factorial
+lenguaje: python
+framework_default: pytest
+
+atributos:
+  - recursion
+
+codigo: |
+  def factorial(n):
+      if n < 0:
+          raise ValueError("n no puede ser negativo")
+      if n == 0:
+          return 1
+      return n * factorial(n - 1)
+
+casos:
+  - tipo: camino_feliz
+    descripcion: factorial de un número positivo
+    entrada: "factorial(5)"
+    esperado: "120"
+  - tipo: valor_limite
+    descripcion: caso base de la recursión
+    entrada: "factorial(0)"
+    esperado: "1"
+  - tipo: entrada_invalida
+    descripcion: factorial no está definido para negativos
+    entrada: "factorial(-3)"
+    esperado: "ValueError"

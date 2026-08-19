@@ -1,0 +1,29 @@
+nombre: esPalindromo
+lenguaje: javascript
+framework_default: vitest
+
+atributos:
+  - retorno_escalar
+
+codigo: |
+  function esPalindromo(texto) {
+    if (typeof texto !== "string") {
+      throw new TypeError("se esperaba una cadena de texto");
+    }
+    const limpio = texto.toLowerCase().replaceAll(" ", "");
+    return limpio === [...limpio].reverse().join("");
+  }
+
+casos:
+  - tipo: camino_feliz
+    descripcion: palabra que sí es palíndromo
+    entrada: 'esPalindromo("reconocer")'
+    esperado: "true"
+  - tipo: valor_limite
+    descripcion: cadena vacía es palíndromo trivial
+    entrada: 'esPalindromo("")'
+    esperado: "true"
+  - tipo: entrada_invalida
+    descripcion: entrada no es texto
+    entrada: "esPalindromo(123)"
+    esperado: "TypeError"

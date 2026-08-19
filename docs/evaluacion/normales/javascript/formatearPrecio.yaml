@@ -1,0 +1,28 @@
+nombre: formatearPrecio
+lenguaje: javascript
+framework_default: vitest
+
+atributos:
+  - parametro_default
+
+codigo: |
+  function formatearPrecio(monto, moneda = "MXN") {
+    if (monto < 0) {
+      throw new Error("el monto no puede ser negativo");
+    }
+    return `${monto.toFixed(2)} ${moneda}`;
+  }
+
+casos:
+  - tipo: camino_feliz
+    descripcion: usa la moneda por defecto sin pasarla
+    entrada: "formatearPrecio(99.5)"
+    esperado: '"99.50 MXN"'
+  - tipo: valor_limite
+    descripcion: monto cero es válido, con moneda explícita
+    entrada: 'formatearPrecio(0, "USD")'
+    esperado: '"0.00 USD"'
+  - tipo: entrada_invalida
+    descripcion: monto negativo no es un precio válido
+    entrada: "formatearPrecio(-10)"
+    esperado: "Error"

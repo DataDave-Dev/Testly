@@ -1,0 +1,25 @@
+nombre: buscarUsuario
+lenguaje: javascript
+framework_default: vitest
+
+atributos:
+  - retorno_none
+
+codigo: |
+  function buscarUsuario(usuarios, id) {
+    return usuarios.find((u) => u.id === id);
+  }
+
+casos:
+  - tipo: camino_feliz
+    descripcion: encuentra el usuario por id
+    entrada: 'buscarUsuario([{ id: 1, nombre: "Ana" }], 1)'
+    esperado: '{ id: 1, nombre: "Ana" }'
+  - tipo: valor_limite
+    descripcion: arreglo vacío nunca encuentra nada
+    entrada: "buscarUsuario([], 1)"
+    esperado: "undefined"
+  - tipo: entrada_invalida
+    descripcion: usuarios no es un arreglo
+    entrada: "buscarUsuario(null, 1)"
+    esperado: "TypeError"

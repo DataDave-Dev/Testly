@@ -1,0 +1,21 @@
+nombre: lee_archivo
+lenguaje: python
+tipo_dificultad: lee_archivo
+
+codigo: |
+  def leer_configuracion(ruta):
+      with open(ruta, "r") as archivo:
+          return archivo.read()
+
+motivo: >
+  Hay una función definida, pero su comportamiento depende del sistema de
+  archivos real (existencia y contenido de `ruta`), no de sus argumentos.
+  Probarla sin tocar el disco implica mockear el sistema de archivos, que el
+  PRD excluye del MVP como "generación de mocks para dependencias externas
+  complejas" (01-prd.md, sección 5).
+
+comportamiento_esperado: >
+  El sistema debe responder que el código no es apto para pruebas unitarias
+  puras sin mockear I/O (RF-09), en vez de generar una prueba que asuma un
+  archivo o contenido inventado sin advertirlo, o que intente leer del disco
+  real durante la prueba.

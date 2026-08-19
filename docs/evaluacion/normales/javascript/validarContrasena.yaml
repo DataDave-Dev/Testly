@@ -1,0 +1,31 @@
+nombre: validarContrasena
+lenguaje: javascript
+framework_default: vitest
+
+atributos:
+  - codigo_error
+
+codigo: |
+  function validarContrasena(contrasena) {
+    if (contrasena.length < 8) {
+      return { valida: false, mensaje: "la contraseña debe tener al menos 8 caracteres" };
+    }
+    if (!/\d/.test(contrasena)) {
+      return { valida: false, mensaje: "la contraseña debe incluir al menos un dígito" };
+    }
+    return { valida: true, mensaje: "" };
+  }
+
+casos:
+  - tipo: camino_feliz
+    descripcion: contraseña válida no lanza excepción, retorna código de éxito
+    entrada: 'validarContrasena("abcdef12")'
+    esperado: '{ valida: true, mensaje: "" }'
+  - tipo: valor_limite
+    descripcion: justo un carácter por debajo del mínimo de longitud
+    entrada: 'validarContrasena("1234567")'
+    esperado: '{ valida: false, mensaje: "la contraseña debe tener al menos 8 caracteres" }'
+  - tipo: entrada_invalida
+    descripcion: entrada no es una cadena de texto
+    entrada: "validarContrasena(null)"
+    esperado: "TypeError"

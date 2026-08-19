@@ -1,0 +1,27 @@
+nombre: es_palindromo
+lenguaje: python
+framework_default: pytest
+
+atributos:
+  - retorno_escalar
+
+codigo: |
+  def es_palindromo(texto):
+      if not isinstance(texto, str):
+          raise TypeError("se esperaba una cadena de texto")
+      limpio = texto.lower().replace(" ", "")
+      return limpio == limpio[::-1]
+
+casos:
+  - tipo: camino_feliz
+    descripcion: palabra que sí es palíndromo
+    entrada: 'es_palindromo("reconocer")'
+    esperado: "True"
+  - tipo: valor_limite
+    descripcion: cadena vacía es palíndromo trivial
+    entrada: 'es_palindromo("")'
+    esperado: "True"
+  - tipo: entrada_invalida
+    descripcion: entrada no es texto
+    entrada: "es_palindromo(123)"
+    esperado: "TypeError"
