@@ -119,6 +119,17 @@ Fuente: [07-metodologia.md](07-metodologia.md) sección 2.
 
 Fuente: [07-metodologia.md](07-metodologia.md) sección 2.
 
+## Firma
+
+Firman los dos roles de liderazgo Scrum. No hay sponsor externo en este
+proyecto (escolar, sin empresa/cliente), por lo que la firma representa el
+compromiso del equipo con lo establecido en esta carta.
+
+| Rol | Nombre | Firma | Fecha |
+|---|---|---|---|
+| Product Owner | Alonso David de León Rodarte | | |
+| Scrum Master | Por asignar | | |
+
 ## Historial de versiones
 
 | Versión | Fecha | Cambio |
@@ -126,3 +137,4 @@ Fuente: [07-metodologia.md](07-metodologia.md) sección 2.
 | 0.1 | 2026-08-19 | Primera versión, adaptada de la carta sponsor original al estado actual del proyecto. Roles Scrum sin asignar persona, dejado pendiente a propósito |
 | 0.2 | 2026-08-19 | Se agrega beneficio "Honestidad frente a pruebas de mentira" (RF-24), heurística estática que detecta pruebas tautológicas sin ejecutar código |
 | 0.3 | 2026-08-19 | **Product Owner asignado: Alonso David de León Rodarte**, también developer. Scrum Master sigue por asignar |
+| 0.4 | 2026-08-19 | Se agrega sección Firma (PO + Scrum Master), elemento que faltaba según la presentación de apoyo de la carta sponsor ([docs/apoyo](apoyo/)) |
