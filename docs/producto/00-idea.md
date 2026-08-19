@@ -2,6 +2,11 @@
 
 Fecha: 2026-08-18
 Estado: mapeo cerrado, listo para planear implementación
+Nota (2026-08-19): la fila "Ejecución de código" de la tabla de abajo quedó
+desactualizada — se agregó RF-25 (ejecución opcional en sandbox de navegador,
+nunca en servidor). Ver [01-prd.md](01-prd.md) RF-25 y RNF-03, y
+[02-arquitectura.md](../arquitectura/02-arquitectura.md) sección 2.14. El
+resto de esta tabla sigue vigente.
 
 ## Pitch
 
@@ -36,7 +41,7 @@ los casos, no solo el resultado.
 |---|---|---|
 | Producto | Pruebas unitarias generadas + explicación del criterio de cada caso | El estudiante aprende a probar, no solo recibe pruebas |
 | Motor | LLM vía API | Cubre los 4 lenguajes y sus frameworks sin escribir un generador por lenguaje |
-| Ejecución de código | **No se ejecuta**, ni el código ni las pruebas generadas | Elimina el mayor riesgo de seguridad y toda la infraestructura de sandbox |
+| Ejecución de código | **No se ejecuta en el servidor.** Decisión original (mapeo): tampoco en cliente — revisada después, ver nota al inicio del documento | En su momento, elimina el mayor riesgo de seguridad de servidor y toda la infraestructura de sandbox. La ejecución de servidor sigue descartada por el mismo motivo |
 | Verificación de las pruebas | Reglas por framework (RF-20) + heurística de pruebas tautológicas (RF-24), no ejecución | Consecuencia directa de no ejecutar. Ver riesgos 1 y 4 |
 | Cuentas | **Opcional.** Sin cuenta: 3 generaciones/día por IP, sin historial. Con cuenta: cuota mayor + historial | Bajar la fricción para que la landing convierta; el costo se controla por IP + Turnstile en vez de por login |
 | Entrega | Copiar y descargar el archivo de pruebas | Sin esto el estudiante retranscribe a mano y la herramienta estorba |

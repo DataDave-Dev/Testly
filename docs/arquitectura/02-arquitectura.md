@@ -1,7 +1,7 @@
 # Arquitectura — Testly
 
 Fecha: 2026-08-18
-Versión: 0.6
+Versión: 0.7
 
 ## 1. Vista general
 
@@ -273,6 +273,7 @@ durante el semestre — ver [05-proveedor-llm.md](../costos/05-proveedor-llm.md)
 | Estilos | Tailwind con tokens propios, monoespaciada elegida | Decidido |
 | Hosting | Cloudflare Workers, sin límite de tiempo de pared. Plan B: Vercel | Decidido |
 | Validación de la salida | Aserciones por framework (texto/regex), no parseo pesado | Decidido |
+| Ejecución de pruebas (cliente) | Pyodide con pytest real (Python) + runner propio compatible con Vitest (JS/TS), en sandbox de navegador — ver sección 2.14 | Decidido |
 
 Con dos tablas propias (`generations`, `anon_quota`) más las que crea Better
 Auth, el cliente `@libsql/client` con SQL directo alcanza. Drizzle se
@@ -282,7 +283,7 @@ justificaría solo si el esquema crece.
 
 | Descartado | Por qué |
 |---|---|
-| Sandbox de ejecución (Docker, Firecracker, E2B, Judge0) | Decisión de producto: no se ejecuta nada. Es lo que mantiene el proyecto dentro de un semestre. Ver sección 7 |
+| Sandbox de ejecución **de servidor** (Docker, Firecracker, E2B, Judge0) | Evaluado y descartado para servidor: agrega infraestructura, costo y carga operativa que no caben en un semestre de 6 estudiantes sin experiencia previa en sandboxing. La ejecución sí ocurre, opcionalmente, **del lado del cliente** — ver sección 2.14 |
 | Parseo real de sintaxis (tree-sitter, `ast`, compiladores) en el MVP | Descartado por ahora, no para siempre. Los techos de Cloudflare gratis (10 ms CPU, 3 MB de bundle) lo hacen incómodo, y las aserciones por framework de la sección 2.11 cubren el modo de falla real con costo casi cero. Se reevalúa si la Fase 2 no alcanza el criterio de validez |
 | ORM completo (Prisma, TypeORM) | Hay una tabla. El costo de configuración y de arranque supera el beneficio |
 | Redis o cola de trabajos | No hay trabajo asíncrono: la llamada al modelo es síncrona con streaming. Una cola aquí solo agrega puntos de falla |
@@ -441,6 +442,65 @@ export const auth = betterAuth({
   ahorre escribir `marcarUsuarioEliminado` a mano.
 
 Ver [08-limites.md](../gestion/08-limites.md) para la decisión de producto detrás de esto.
+
+### 2.14 Ejecución en sandbox del navegador (RF-25)
+
+Hasta esta versión, la postura era "no se ejecuta nada" (RNF-03 original) y el
+sandbox de servidor quedaba fuera por costo y carga operativa (sección 2.10).
+Pero la sección 7 (Seguridad) ya documentaba un riesgo sin resolver: el
+estudiante corre el archivo descargado en su propia máquina, sin ningún
+sandbox, mitigado solo por una instrucción en el prompt y un aviso en
+pantalla. Ejecutar en un sandbox **del navegador del propio usuario** cierra
+ese hueco sin los costos que descartaron el sandbox de servidor: no hay
+infraestructura que administrar, no hay factura, y el código nunca sale del
+dispositivo del estudiante.
+
+Investigación completa de alternativas (por qué se descartaron WebContainers,
+Piston, Judge0 y Oracle Cloud) en el reporte de la sesión de exploración;
+resumen de las decisiones abajo.
+
+**Python — Pyodide.** CPython real compilado a WASM; `pytest` se instala real
+vía `micropip.install("pytest")`. Limitación conocida: sin threading ni
+multiprocessing, irrelevante para pruebas unitarias simples. Corre dentro de
+un **iframe con `sandbox="allow-scripts"` y sin `allow-same-origin`** —
+origen opaco, sin acceso a cookies ni `localStorage` de Testly. Sin esto,
+Pyodide no es un sandbox de seguridad por sí solo (hay CVEs de escape
+documentados cuando corre en el mismo origen que el host).
+
+**JavaScript/TypeScript — runner propio, sin WASM.** Un archivo Vitest es
+JavaScript normal. En vez de cargar un runtime completo (WebContainers cuesta
+licencia en producción; QuickJS-wasm agrega descarga y tampoco corre Vitest
+real), se implementa un **shim mínimo de `describe`/`it`/`expect`** que corre
+en un Web Worker con el motor JS nativo del navegador — cero descarga extra,
+cero costo. Pierde fidelidad total con Vitest (sin plugins, sin config real),
+pero cubre los patrones que el modelo genera en la práctica.
+
+**Límites duros, en ambos casos:**
+- Timeout fijo de ~5 segundos (`iframe.remove()` / `worker.terminate()`
+  desde el orquestador) — no hay costo de infraestructura por segundo (es el
+  navegador del propio usuario), así que el límite real es UX: las funciones
+  del conjunto de evaluación corren en milisegundos, 5s ya es holgado.
+- Sin `fetch`, sin acceso a filesystem, sin acceso al DOM de Testly.
+- Disparo **manual**, botón "Correr pruebas" — no automático en cada
+  generación, para no meter la carga del sandbox dentro del presupuesto de
+  RNF-01 (45s para la generación en sí).
+
+**Qué muestra el resultado.** Solo estado técnico — "corrió sin errores de
+sintaxis/import/nombre" — sin un indicador de aprobado/reprobado prominente.
+RF-08 exige que la explicación del criterio no sea omitible; un semáforo
+verde grande invita a mirar solo eso y saltarse la explicación.
+
+**Reuso en Fase 2.** [04-plan.md](../gestion/04-plan.md) ya pedía
+automatizar la corrida del conjunto de evaluación contra Sonnet 5 en varios
+niveles de `effort`. Esta misma pieza, corrida en modo headless, es ese
+script — se construye una sola vez en la Fase 1 y sirve doble: calibración y
+producto. El criterio de validez de PRD §9 deja de medirse completamente a
+mano.
+
+**Sigue sin resolver:** una vez que el estudiante descarga el archivo y lo
+corre fuera de Testly, en su propia terminal, no hay sandbox que lo proteja —
+ese riesgo residual (sección 7) no cambia. El sandbox del navegador es una
+vista previa antes de esa descarga, no una garantía posterior.
 
 ## 3. Estructura de carpetas (decidida: opción A, ver [06-estructura-carpetas.md](06-estructura-carpetas.md))
 
@@ -711,7 +771,7 @@ calculado al vuelo desde los tokens siempre es correcto.
 |---|---|
 | Fuga de la llave de la API | La llave solo existe como variable de entorno del servidor. Ninguna referencia en código de cliente |
 | Ejecución de código malicioso en el servidor | No aplica: ni el código recibido ni las pruebas generadas se ejecutan |
-| **El estudiante corre en su máquina un archivo generado con efectos secundarios** | El prompt prohíbe red, archivos, procesos y variables de entorno en el código generado. El aviso de RF-12 le dice que lo revise antes de correrlo. Es una mitigación parcial y hay que asumirlo como tal |
+| **El estudiante corre en su máquina un archivo generado con efectos secundarios** | El prompt prohíbe red, archivos, procesos y variables de entorno en el código generado. El aviso de RF-12 le dice que lo revise antes de correrlo. Además, RF-25 le permite correrlo primero en el sandbox aislado del navegador (sección 2.14) como vista previa. Sigue siendo una mitigación parcial: una vez descargado y corrido fuera de Testly, ya no hay sandbox que lo proteja |
 | Inyección de prompt vía el código pegado | El código va en bloque delimitado; el prompt de sistema declara que ese contenido son datos, no instrucciones. Refuerza la regla anterior: aunque la inyección funcione, el archivo generado sigue siendo revisado por el usuario antes de ejecutarse |
 | `framework` arbitrario concatenado al prompt | Se valida contra `frameworks.ts` en el servidor; solo se aceptan valores de la lista |
 | XSS al renderizar la respuesta | La salida del modelo se renderiza como Markdown con sanitizador. Nunca `innerHTML` ni `set:html` directo. Aplica también al bloque de código: se inserta como texto, no como HTML |
@@ -721,9 +781,11 @@ calculado al vuelo desde los tokens siempre es correcto.
 
 La tercera fila es el riesgo nuevo que introduce este producto y no existía en
 la versión anterior de la idea: **antes la salida era prosa para leer, ahora es
-código para ejecutar.** No se resuelve del todo sin ejecutar las pruebas en un
-sandbox, que está fuera del alcance. La postura es prohibirlo en el prompt y
-decírselo al usuario, no fingir que el riesgo desapareció.
+código para ejecutar.** RF-25 (sección 2.14) resuelve la parte que se puede
+resolver sin costo — una vista previa en sandbox de navegador antes de
+descargar. Lo que no se resuelve es lo que pase después de la descarga: ahí
+la postura sigue siendo prohibirlo en el prompt y decírselo al usuario, no
+fingir que el riesgo desapareció por completo.
 
 ## 8. Variables de entorno
 

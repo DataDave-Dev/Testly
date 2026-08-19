@@ -1,7 +1,7 @@
 # PRD — Testly (generador pedagógico de pruebas unitarias)
 
 Fecha: 2026-08-19
-Versión: 0.6
+Versión: 0.7
 
 ## 1. Problema
 
@@ -88,14 +88,20 @@ para enseñar pruebas con el código real de sus grupos.
 - Historial personal, consultable y re-abrible (solo con cuenta)
 - Límite de generaciones por periodo, distinto para anónimo y autenticado
 - Manejo de errores visible al usuario (falla de API, código demasiado largo)
-- Aviso explícito de que las pruebas no fueron ejecutadas
+- Aviso explícito de que las pruebas no se ejecutan por defecto y deben
+  revisarse antes de usarse; si el usuario corre el sandbox del navegador
+  (RF-25), ese resultado es una vista previa y no reemplaza esa revisión
+- Ejecución opcional de las pruebas generadas en un sandbox aislado dentro
+  del propio navegador del usuario — nunca en el servidor — bajo acción
+  explícita (ver RF-25)
 
 ### Fuera del MVP
 
 - Soporte de Java y C/C++ (JUnit 5, GoogleTest/Catch2). El MVP cubre Python y
   JavaScript/TypeScript; los otros dos quedan como trabajo futuro, ver
   [04-plan.md](../gestion/04-plan.md)
-- Ejecución de las pruebas generadas
+- Ejecución de las pruebas generadas **en el servidor** — el navegador del
+  propio usuario sí puede ejecutarlas, opcionalmente (ver RF-25 y RNF-03)
 - Reporte de cobertura
 - Detección de errores o análisis de estilo del código de entrada
 - Cuentas de profesor, grupos o reportes agregados
@@ -134,7 +140,7 @@ sección 5). Si se agregan más adelante, es la misma tabla con dos filas más.
 | RF-09 | El sistema indica cuando el código recibido no es apto para pruebas unitarias, en lugar de generar pruebas artificiales |
 | RF-10 | El usuario puede copiar el archivo de pruebas al portapapeles |
 | RF-11 | El usuario puede descargar el archivo con el nombre convencional del framework |
-| RF-12 | La interfaz advierte que las pruebas no fueron ejecutadas y deben verificarse |
+| RF-12 | La interfaz advierte que las pruebas no se ejecutan por defecto y deben verificarse; si el usuario las corre en el sandbox del navegador (RF-25), el resultado es una vista previa y no reemplaza esa verificación |
 | RF-13 | Si hay sesión, cada generación se guarda asociada al usuario que la generó. Sin sesión, no se guarda nada |
 | RF-14 | El usuario con sesión puede ver la lista de sus generaciones previas, ordenada por fecha |
 | RF-15 | El usuario con sesión puede abrir una generación previa y ver el código, las pruebas y la explicación |
@@ -147,6 +153,7 @@ sección 5). Si se agregan más adelante, es la misma tabla con dos filas más.
 | RF-22 | El flujo sin sesión pasa por un desafío anti-bot (Cloudflare Turnstile) antes de generar |
 | RF-23 | El usuario con sesión puede eliminar su cuenta. La eliminación es un **soft delete**: no se borra físicamente, se marca como eliminada y el usuario deja de poder iniciar sesión con ella. Ver [02-arquitectura.md](../arquitectura/02-arquitectura.md), sección 2.13, y [08-limites.md](../gestion/08-limites.md) |
 | RF-24 | El sistema aplica una heurística estática que detecta patrones típicos de pruebas tautológicas (`assert True`, aserciones sobre constantes, mocks que retornan justo lo que la prueba afirma) y marca visualmente la prueba como sospechosa, sin bloquear la descarga. No requiere ejecutar código — mismo criterio de costo y seguridad que RF-20 |
+| RF-25 | El usuario puede, de forma opcional, correr las pruebas generadas en un sandbox aislado dentro de su propio navegador (Pyodide con pytest real para Python; un runner ligero compatible con la sintaxis de Vitest para JavaScript/TypeScript). La ejecución nunca ocurre en el servidor, tiene un límite de tiempo forzado (~5s) y no tiene acceso a red ni al sistema de archivos. El resultado muestra solo si corrió sin errores de sintaxis, import o nombre — sin un indicador de "aprobado/reprobado" prominente, para no invitar a saltarse la explicación de RF-08 |
 
 ## 8. Requisitos no funcionales
 
@@ -154,7 +161,7 @@ sección 5). Si se agregan más adelante, es la misma tabla con dos filas más.
 |---|---|
 | RNF-01 | El resultado se entrega en menos de 45 segundos en el 90% de los casos |
 | RNF-02 | La respuesta se muestra en streaming: el usuario ve texto antes de que termine |
-| RNF-03 | El código del usuario nunca se ejecuta, ni las pruebas generadas |
+| RNF-03 | El código del usuario y las pruebas generadas nunca se ejecutan en el servidor. La ejecución es opcional y ocurre, si el usuario la pide, en un sandbox aislado del navegador (RF-25) — sin red, sin sistema de archivos, con límite de tiempo forzado |
 | RNF-04 | Las credenciales de la API del modelo viven solo en el servidor, nunca en el cliente |
 | RNF-05 | No hay contraseñas que almacenar (sesión sin contraseña); el enlace de acceso expira y es de un solo uso |
 | RNF-06 | La salida del modelo se renderiza de forma segura, sin inyección de HTML |
@@ -170,7 +177,7 @@ código. Esto endurece el requisito de duración de función del hosting; ver
 
 | Criterio | Meta |
 |---|---|
-| Funcionalidad | Los 23 requisitos funcionales operan de extremo a extremo |
+| Funcionalidad | Los 25 requisitos funcionales operan de extremo a extremo |
 | Cobertura de casos | Sobre el conjunto de evaluación de 20 funciones con casos documentados, las pruebas generadas cubren el caso feliz, el borde y el de error en al menos 15 |
 | Validez | Al ejecutar a mano las pruebas de esas 20, al menos 17 corren sin errores de sintaxis, import o nombre |
 | Pruebas vacías | Cero pruebas tautológicas (que pasan sin importar la implementación) en la muestra evaluada. Primera barrera: heurística RF-24 |
