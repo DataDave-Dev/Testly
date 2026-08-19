@@ -1,7 +1,7 @@
 # Carta patrocinadora (Project Charter)
 
 Fecha: 2026-08-19
-Versión: 0.2
+Versión: 0.7
 
 Adaptada de la carta sponsor original al estado actual del proyecto
 documentado en `docs/`. Fuente por sección anotada al margen.
@@ -77,14 +77,14 @@ compromisos del equipo dentro del semestre.
 exacto de sprints por fase se confirma en Sprint Planning, no está fijado de
 antemano (ver [07-metodologia.md](07-metodologia.md) sección 3).
 
-| Fase | Contenido | Estimado |
-|---|---|---|
-| Fase 0 — Preparación | Equipo, presupuesto, conjunto de evaluación | 1 sprint |
-| Fase 1 — Núcleo de la generación | Endpoint `/api/generar`, streaming, protección desde el día uno | 2 sprints |
-| Fase 2 — Calibración | Medir `effort` sobre Sonnet 5, validar contra el conjunto de evaluación | 1 sprint |
-| Fase 3 — Cuentas opcionales y persistencia | Better Auth, Turso, historial | 1 sprint |
-| Fase 4 — Interfaz | Tokens de diseño, landing, pantallas | 1 sprint |
-| Fase 5 — Prueba con usuarios y cierre | Prueba con 10+ estudiantes, documentación final | 1 sprint |
+| Fase | Contenido | Estimado | Fechas |
+|---|---|---|---|
+| Fase 0 — Preparación | Equipo, presupuesto, conjunto de evaluación | 1 sprint | 2026-08-19 → 2026-09-01 |
+| Fase 1 — Núcleo de la generación | Endpoint `/api/generar`, streaming, protección desde el día uno | 2 sprints | 2026-09-02 → 2026-09-29 |
+| Fase 2 — Calibración | Medir `effort` sobre Sonnet 5, validar contra el conjunto de evaluación | 1 sprint | 2026-09-30 → 2026-10-13 |
+| Fase 3 — Cuentas opcionales y persistencia | Better Auth, Turso, historial | 1 sprint | 2026-10-14 → 2026-10-27 |
+| Fase 4 — Interfaz | Tokens de diseño, landing, pantallas | 1 sprint | 2026-10-28 → 2026-11-10 |
+| Fase 5 — Prueba con usuarios y cierre | Prueba con 10+ estudiantes, documentación final | 1 sprint | 2026-11-11 → 2026-11-24 |
 
 Si el ritmo no alcanza, se recorta la Fase 4 antes que la Fase 2 o la Fase 5.
 
@@ -140,3 +140,4 @@ compromiso del equipo con lo establecido en esta carta.
 | 0.4 | 2026-08-19 | Se agrega sección Firma (PO + Scrum Master), elemento que faltaba según la presentación de apoyo de la carta sponsor ([docs/apoyo](../apoyo/)) |
 | 0.5 | 2026-08-19 | **Scrum Master asignada: Isela Esmeralda Guerrero Martínez** |
 | 0.6 | 2026-08-19 | **Product Owner asignado: Osmar Emilio Solís Olivares** |
+| 0.7 | 2026-08-19 | **Fechas por fase agregadas**, calendario fijado desde el arranque del Sprint 1 (2026-08-19). Ver [04-plan.md](04-plan.md#calendario-de-sprints) |

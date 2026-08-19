@@ -1,7 +1,7 @@
 # Plan de trabajo — Testly
 
 Fecha: 2026-08-18
-Versión: 0.7
+Versión: 0.8
 
 **Fecha límite: 2026-12-01.** Proyecto terminado en su totalidad, sin
 excepción. Desde hoy (2026-08-18) son ~15 semanas, unos **7 sprints de 2
@@ -10,6 +10,28 @@ abajo. Es ajustado: la Fase 1 sola se estimó en 2 sprints. Si a mitad de
 camino el ritmo no alcanza, se recorta la Fase 4 (interfaz, ver sección de esa
 fase) antes que la Fase 2 (calibración) o la Fase 5 (prueba con usuarios), que
 son las que sostienen los criterios de éxito del PRD.
+
+## Calendario de sprints
+
+**Fijado el 2026-08-19**, con el Sprint 1 arrancando ese mismo día (mapeo
+exacto de 1 fase por sprint, salvo la Fase 1 que se estimó en 2). Sprints de
+2 semanas, sin hueco entre uno y el siguiente.
+
+| Sprint | Fechas | Fase |
+|---|---|---|
+| 1 | 2026-08-19 → 2026-09-01 | Fase 0 — Preparación |
+| 2 | 2026-09-02 → 2026-09-15 | Fase 1 — Núcleo de la generación (1/2) |
+| 3 | 2026-09-16 → 2026-09-29 | Fase 1 — Núcleo de la generación (2/2) |
+| 4 | 2026-09-30 → 2026-10-13 | Fase 2 — Calibración |
+| 5 | 2026-10-14 → 2026-10-27 | Fase 3 — Cuentas opcionales y persistencia |
+| 6 | 2026-10-28 → 2026-11-10 | Fase 4 — Interfaz |
+| 7 | 2026-11-11 → 2026-11-24 | Fase 5 — Prueba con usuarios y cierre |
+| — | 2026-11-25 → 2026-12-01 | Colchón de 6 días antes del deadline, sin sprint asignado |
+
+Si un sprint se atrasa, el criterio de recorte sigue siendo el de arriba:
+Fase 4 primero, nunca la Fase 2 ni la Fase 5. El colchón de 6 días no alcanza
+para absorber un sprint completo perdido — es margen de cierre, no un sprint
+8 disfrazado.
 
 ## Fases
 

@@ -1,7 +1,7 @@
 # Metodología de desarrollo — Testly
 
 Fecha: 2026-08-18
-Versión: 0.6
+Versión: 0.8
 
 ## 1. Metodología elegida: Scrum
 
@@ -52,18 +52,21 @@ primer sprint de cada fase — no es asignación fija de todo el semestre:
 
 - **Duración: 2 semanas.** Ajustable si el calendario escolar lo exige (ver
   nota abajo).
-- Cada fase de 04-plan.md se divide en 1 o 2 sprints según su carga. Por
-  ejemplo, la Fase 1 (núcleo de la generación) probablemente necesita 2
-  sprints; la Fase 0 (preparación) puede caber en uno.
+- Cada fase de 04-plan.md se divide en 1 o 2 sprints según su carga. La Fase 1
+  (núcleo de la generación) se estimó en 2 sprints; el resto, en 1.
 - Un sprint no cruza el límite de una fase: no se mezclan tareas de la Fase 1
   con tareas de la Fase 3 en el mismo sprint, porque la Fase 3 depende de que
   la Fase 1 esté cerrada.
+- **Calendario fijado el 2026-08-19**, Sprint 1 arrancando ese mismo día —
+  tabla completa con fechas por sprint en
+  [04-plan.md](04-plan.md#calendario-de-sprints).
 
-**Fecha límite: 2026-12-01** (ver [04-plan.md](04-plan.md)). Desde hoy
-(2026-08-18) son ~15 semanas, es decir **~7 sprints de 2 semanas** para las 6
-fases. Ajustado — la Fase 1 sola se estimó en 2 sprints — así que no hay
-margen para sprints que no cierren nada. Si el ritmo real no alcanza, se
-recorta la Fase 4 antes que la 2 o la 5 (criterio en 04-plan.md).
+**Fecha límite: 2026-12-01** (ver [04-plan.md](04-plan.md)). Desde el inicio
+del Sprint 1 (2026-08-19) son ~15 semanas, es decir **~7 sprints de 2
+semanas** para las 6 fases, más un colchón de 6 días antes del deadline.
+Ajustado — la Fase 1 sola se estimó en 2 sprints — así que no hay margen para
+sprints que no cierren nada. Si el ritmo real no alcanza, se recorta la Fase 4
+antes que la 2 o la 5 (criterio en 04-plan.md).
 
 **Capacidad confirmada:** al menos 1-2 personas pueden dedicar ~12 horas/semana
 sin problema. Eso da un piso de **24 horas/semana de equipo** (48 horas por
@@ -120,3 +123,4 @@ que sincronizar aparte del repo de código.
 | 0.5 | 2026-08-19 | **Product Owner asignado: Alonso David de León Rodarte**, también developer. Scrum Master sigue por asignar |
 | 0.6 | 2026-08-19 | **Scrum Master asignada: Isela Esmeralda Guerrero Martínez** |
 | 0.7 | 2026-08-19 | **Product Owner asignado: Osmar Emilio Solís Olivares** |
+| 0.8 | 2026-08-19 | **Calendario de sprints fijado**: Sprint 1 arranca el 2026-08-19, tabla completa de fechas por sprint en [04-plan.md](04-plan.md#calendario-de-sprints). El reparto de sprints por fase deja de estar pendiente de Sprint Planning |
