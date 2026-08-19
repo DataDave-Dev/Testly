@@ -92,16 +92,17 @@ Fuente: [04-plan.md](04-plan.md), [08-limites.md](08-limites.md) sección 1.
 
 ## Administrador
 
-**Pendiente de asignar.** Roles Scrum definidos, sin persona asignada
-todavía:
+**Product Owner asignado; Scrum Master pendiente.**
 
 | Rol | Responsabilidad | Quién |
 |---|---|---|
-| Product Owner | Prioriza el backlog contra el PRD, decide qué entra a cada sprint | Por asignar |
+| Product Owner | Prioriza el backlog contra el PRD, decide qué entra a cada sprint | Alonso David de León Rodarte |
 | Scrum Master | Facilita ceremonias, quita bloqueos | Por asignar |
-| Equipo de desarrollo | Implementa el sprint backlog | Los demás |
+| Equipo de desarrollo | Implementa el sprint backlog | Todos, incluido el PO |
 
 En equipo de 6, PO y Scrum Master también pueden tomar tareas de desarrollo.
+Alonso es PO y developer a la vez: no autoaprueba su propio código, otra
+persona del equipo revisa igual.
 
 Fuente: [07-metodologia.md](07-metodologia.md) sección 2.
 
@@ -124,3 +125,4 @@ Fuente: [07-metodologia.md](07-metodologia.md) sección 2.
 |---|---|---|
 | 0.1 | 2026-08-19 | Primera versión, adaptada de la carta sponsor original al estado actual del proyecto. Roles Scrum sin asignar persona, dejado pendiente a propósito |
 | 0.2 | 2026-08-19 | Se agrega beneficio "Honestidad frente a pruebas de mentira" (RF-24), heurística estática que detecta pruebas tautológicas sin ejecutar código |
+| 0.3 | 2026-08-19 | **Product Owner asignado: Alonso David de León Rodarte**, también developer. Scrum Master sigue por asignar |
