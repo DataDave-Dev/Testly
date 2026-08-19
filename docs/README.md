@@ -20,7 +20,7 @@ Contexto: proyecto escolar (FIME).
 | [06-estructura-carpetas.md](arquitectura/06-estructura-carpetas.md) | Cinco formas de organizar `src/`, comparadas |
 | [07-metodologia.md](gestion/07-metodologia.md) | Metodología de desarrollo (Scrum), equipo con matrícula, roles, sprints, ceremonias |
 | [08-limites.md](gestion/08-limites.md) | Fecha límite, retención y borrado de datos, acceso, tope de salida del modelo, tabla de límites técnicos |
-| [09-carta-patrocinadora.md](gestion/09-carta-patrocinadora.md) | Carta patrocinadora (project charter): beneficio, entregables, medidas de éxito, fechas, roles pendientes de asignar |
+| [09-carta-patrocinadora.md](gestion/09-carta-patrocinadora.md) | Carta patrocinadora (project charter): beneficio, entregables, medidas de éxito, fechas y roles Scrum |
 
 ## Estructura de carpetas
 
@@ -57,3 +57,4 @@ encaja en ninguna, se discute antes de crear una carpeta nueva.
 | 0.9 | 2026-08-19 | **Nombre del proyecto fijado: Testly.** Se propaga a todos los documentos que se referían a él sin nombre |
 | 1.0 | 2026-08-19 | Esta carpeta pasa a versionarse en el repositorio: se retira la nota que la excluía por `.gitignore` |
 | 1.1 | 2026-08-19 | **Reorganización por carpetas temáticas** (`producto/`, `arquitectura/`, `costos/`, `gestion/`), previendo que entre más documentación. Nombres de archivo sin cambios, solo la carpeta; enlaces cruzados actualizados |
+| 1.2 | 2026-08-19 | **RF-25 nuevo: ejecución opcional de las pruebas generadas en un sandbox del navegador** (Pyodide para Python, runner propio compatible con Vitest para JS/TS), nunca en el servidor. Revierte parcialmente la decisión original de "no ejecutar nada" — el sandbox de *servidor* (Docker/Firecracker/E2B/Judge0) sigue descartado, el de *cliente* no. RNF-03, RF-12 y la lista de alcance del PRD se actualizan; nueva sección 2.14 en 02-arquitectura.md; Fase 1 de 04-plan.md gana esta pieza, reusada en Fase 2 para automatizar la corrida del conjunto de evaluación. Investigación de alternativas de sandboxing hecha antes de decidir |

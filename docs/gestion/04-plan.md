@@ -1,7 +1,7 @@
 # Plan de trabajo — Testly
 
 Fecha: 2026-08-18
-Versión: 0.6
+Versión: 0.7
 
 **Fecha límite: 2026-12-01.** Proyecto terminado en su totalidad, sin
 excepción. Desde hoy (2026-08-18) son ~15 semanas, unos **7 sprints de 2
@@ -56,6 +56,11 @@ y no se puede improvisar en la Fase 2.
 - Primera versión del prompt de sistema
 - Pantalla mínima: pegar código, elegir lenguaje y framework, ver el resultado
   en streaming, descargar el archivo
+- **Sandbox de ejecución del lado del cliente (RF-25):** Pyodide (Python) +
+  runner propio compatible con Vitest (JS/TS), en iframe/Worker aislado,
+  botón "Correr pruebas" bare-bones — nunca en el servidor. Ver
+  [02-arquitectura.md](../arquitectura/02-arquitectura.md) sección 2.14. Se
+  construye aquí porque la Fase 2 lo reusa para automatizar su corrida
 
 **Entregable:** un archivo de pruebas real, generado desde el navegador en
 producción y descargado.
@@ -83,8 +88,9 @@ validez más adelante.
 - **Usar la Batch API**: 50% de descuento y no hay prisa. Con Sonnet 5 en los
   tres niveles más un pase de Opus 5, la fase completa cuesta unos $3-4, muy
   por debajo del presupuesto de $20
-- **Ejecutar a mano las pruebas generadas** y registrar cuántas corren sin
-  errores de sintaxis, import o nombre (criterio de validez del PRD)
+- **Correr las pruebas generadas con el sandbox de la Fase 1** (RF-25, en modo
+  headless) y registrar cuántas corren sin errores de sintaxis, import o
+  nombre (criterio de validez del PRD) — ya no se mide completamente a mano
 - Revisar a mano cuántas pruebas son tautológicas
 - Verificar que los fragmentos "difíciles de probar" reciben la respuesta de
   RF-09 y no pruebas inventadas
@@ -159,7 +165,7 @@ crea. El flujo sin sesión, que ya funcionaba desde la Fase 1, no cambia.
 | Se usa para hacer la tarea de escribir pruebas | Medio | Reconocido de frente en el PRD, sección 10. La explicación no es omitible y el código pegado queda en el historial |
 | La API falla o cambia durante el semestre | Medio | Modelo configurable por variable de entorno; manejo de errores explícito |
 | El equipo no domina Astro con SSR | Medio | Fase 1 corta y temprana; si el adapter da problemas, se detecta con semanas de margen |
-| Alcance que crece (ejecutar pruebas, cobertura, mocks) | Medio | La lista de "fuera del MVP" del PRD es la defensa. "Ejecutar las pruebas" es la que más va a tentar: implica sandbox y es un proyecto entero aparte |
+| Alcance que crece (cobertura, mocks, ejecución de servidor) | Medio | La lista de "fuera del MVP" del PRD sigue siendo la defensa para lo que queda fuera. "Ejecutar las pruebas" ya no es un riesgo abierto: se decidió como sandbox de navegador con costo $0 (RF-25, ver 02-arquitectura.md sección 2.14) — la tentación que sigue viva es escalar a ejecución de servidor (Docker/Firecracker/E2B), eso sí sigue fuera del MVP |
 | Turso o Better Auth cambian condiciones del plan gratuito durante el semestre | Bajo | El consumo del proyecto está muy por debajo del margen gratuito de Turso (sección 2.4 de arquitectura); verificar igual antes de la presentación |
 | Agregar Java o C/C++ más adelante resulta más caro de calibrar de lo previsto | Bajo | Quedan fuera del MVP desde [01-prd.md](../producto/01-prd.md), sección 5. Si se agregan después de la Fase 5, repiten la Fase 2 (conjunto de evaluación propio, medición de validez) antes de anunciarse como soportados |
 | Las 6 fases no caben en los ~7 sprints disponibles antes del 2026-12-01 | Alto | Fecha límite fija, no movible. Si un sprint se atrasa, se recorta primero la Fase 4 (interfaz), nunca la Fase 2 (calibración) ni la Fase 5 (prueba con usuarios) |

@@ -14,8 +14,8 @@ decisiones definen el costo del proyecto entero (ver
 
 ## Sprint Backlog
 
-- [ ] Confirmar equipo y reparto de responsabilidades — asignar Product Owner
-  y Scrum Master, hoy "por asignar"
+- [x] Confirmar equipo y reparto de responsabilidades — Product Owner: Osmar
+  Emilio Solís Olivares; Scrum Master: Isela Esmeralda Guerrero Martínez
   ([07-metodologia.md](../gestion/07-metodologia.md) sección 2)
 - [x] Presupuesto — **resuelto**: $20 USD ya disponibles
   ([03-costos.md](../costos/03-costos.md))
