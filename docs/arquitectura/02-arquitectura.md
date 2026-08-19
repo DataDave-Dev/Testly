@@ -1,7 +1,7 @@
 # Arquitectura — Testly
 
-Fecha: 2026-08-18
-Versión: 0.7
+Fecha: 2026-08-19
+Versión: 0.8
 
 ## 1. Vista general
 
@@ -502,6 +502,61 @@ corre fuera de Testly, en su propia terminal, no hay sandbox que lo proteja —
 ese riesgo residual (sección 7) no cambia. El sandbox del navegador es una
 vista previa antes de esa descarga, no una garantía posterior.
 
+### 2.15 Modo mantenimiento (pre-lanzamiento)
+
+Desde el Sprint 2, la Fase 1 exige desplegar a producción en el dominio real
+de Cloudflare — la prueba de streaming largo (sección 2.2) tiene que
+verificarse ahí, no en `localhost`. Eso deja el proyecto expuesto en un
+dominio público antes de que esté listo para mostrarse. Este modo cierra ese
+hueco: cualquier visitante ve una página estática "en construcción" con la
+fecha de lanzamiento y un contador, mientras el equipo sigue probando en el
+mismo dominio.
+
+**No es control de acceso real.** Es una cortina, no una cerradura: el
+secreto de bypass viaja en cookie o query param, cualquiera con el enlace
+entra. Aceptable porque no protege datos ni cuotas — solo oculta que el
+proyecto existe antes de tiempo. No sustituye nada de lo descrito en la
+sección 2.12 ni en la 7 (Seguridad).
+
+**Vive al principio de `src/middleware.ts`, antes de resolver sesión** (la
+lógica de la sección 2.12 no debe correr si el sitio está en mantenimiento):
+
+```ts
+// src/middleware.ts
+import { defineMiddleware } from 'astro:middleware';
+
+const COOKIE_BYPASS = 'testly_bypass';
+
+export const onRequest = defineMiddleware(async (context, next) => {
+  const enMantenimiento = import.meta.env.MAINTENANCE_MODE === 'true';
+  if (!enMantenimiento) return next();
+
+  const secreto = import.meta.env.MAINTENANCE_BYPASS_SECRET;
+  const bypassPorQuery = context.url.searchParams.get('bypass') === secreto;
+  const bypassPorCookie = context.cookies.get(COOKIE_BYPASS)?.value === secreto;
+
+  if (bypassPorQuery || bypassPorCookie) {
+    if (bypassPorQuery) {
+      context.cookies.set(COOKIE_BYPASS, secreto, { httpOnly: true, path: '/' });
+    }
+    return next();
+  }
+
+  return context.rewrite('/en-construccion');
+});
+```
+
+`/en-construccion` es una página estática de Astro (sin llamadas a la API,
+sin tocar `src/lib/`): muestra la fecha de lanzamiento y un contador que se
+actualiza en el cliente. La fecha vive en una sola variable de entorno
+(`LAUNCH_DATE`) para que el servidor la use al renderizar y el cliente la
+lea para el contador en vivo — no se hardcodea en dos lugares.
+
+**Se apaga (`MAINTENANCE_MODE=false`), no se borra**, cuando el proyecto esté
+listo para mostrarse. Tiene que estar apagado antes de la Fase 5 (prueba con
+usuarios): los 10 estudiantes ajenos al equipo no tienen por qué recibir un
+enlace de bypass a mano.
+
 ## 3. Estructura de carpetas (decidida: opción A, ver [06-estructura-carpetas.md](06-estructura-carpetas.md))
 
 ```
@@ -802,6 +857,9 @@ MAX_CODE_CHARS=12000            # ~3,000 tokens de código como máximo
 LLM_MAX_OUTPUT_TOKENS=16000     # ver 08-limites.md; si se corta, la descarga sale truncada
 QUOTA_ANONIMA_DIARIA=3          # decidido; sin sesión, por IP
 QUOTA_PER_PERIOD=10             # decidido; con sesión, por 30 días
+MAINTENANCE_MODE=false          # true mientras el sitio no es público (sección 2.15)
+MAINTENANCE_BYPASS_SECRET=      # solo servidor; da acceso al equipo en modo mantenimiento
+LAUNCH_DATE=                    # fecha del contador de la página "en construcción"
 ```
 
 El servidor debe verificar al arrancar que las variables requeridas existen y
