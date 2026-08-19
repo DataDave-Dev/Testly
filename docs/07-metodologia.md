@@ -26,12 +26,13 @@ Propuesta, el equipo confirma quién toma cada uno:
 
 | Rol | Responsabilidad | Quién |
 |---|---|---|
-| Product Owner | Prioriza el backlog contra el PRD ([01-prd.md](01-prd.md)), decide qué entra a cada sprint, es la voz de "qué necesita el proyecto" frente al profesor | Por asignar |
+| Product Owner | Prioriza el backlog contra el PRD ([01-prd.md](01-prd.md)), decide qué entra a cada sprint, es la voz de "qué necesita el proyecto" frente al profesor | Alonso David de León Rodarte |
 | Scrum Master | Facilita las ceremonias, quita bloqueos, cuida que el sprint no se sobrecargue | Por asignar |
-| Equipo de desarrollo | El resto: implementa el sprint backlog | Los demás |
+| Equipo de desarrollo | El resto: implementa el sprint backlog | Todos, incluido el PO |
 
 En equipo de 6, PO y Scrum Master pueden también tomar tareas de desarrollo;
-no son roles de tiempo completo aquí.
+no son roles de tiempo completo aquí. Alonso es PO y developer a la vez: no
+autoaprueba su propio código, otra persona del equipo revisa igual.
 
 ### Áreas técnicas (de [02-arquitectura.md](02-arquitectura.md))
 
@@ -116,3 +117,4 @@ que sincronizar aparte del repo de código.
 | 0.2 | 2026-08-18 | **Cambio de metodología: Scrum**, decisión del equipo. Sprints de 2 semanas sobre las fases de 04-plan.md, roles Scrum, ceremonias, backlog y Definition of Done |
 | 0.3 | 2026-08-18 | Fecha límite confirmada (2026-12-01): ~7 sprints disponibles para las 6 fases, calendario ajustado. Horas/semana por persona queda pendiente |
 | 0.4 | 2026-08-18 | Capacidad parcial confirmada: 1-2 personas a ~12h/semana (piso de 24h/semana de equipo). Falta identificar a esas personas y la disponibilidad de las 4-5 restantes |
+| 0.5 | 2026-08-19 | **Product Owner asignado: Alonso David de León Rodarte**, también developer. Scrum Master sigue por asignar |
