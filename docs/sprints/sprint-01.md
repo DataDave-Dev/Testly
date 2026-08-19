@@ -1,7 +1,7 @@
 # Sprint 1 — Preparación (Fase 0) — Testly
 
 Fecha: 2026-08-19
-Versión: 0.1
+Versión: 0.2
 Estado: por iniciar (fechas de inicio/fin se fijan en Sprint Planning)
 
 ## Objetivo del sprint
@@ -21,14 +21,15 @@ decisiones definen el costo del proyecto entero (ver
   ([03-costos.md](../costos/03-costos.md))
 - [x] Límite de cuota por usuario — **resuelto**: 10 cada 30 días con sesión,
   3/día por IP sin sesión
-- [ ] Armar el conjunto de evaluación: **20 funciones** en Python y
-  JavaScript/TypeScript, cada una con su lista documentada de casos que las
-  pruebas deberían cubrir (camino feliz, valores límite, entradas inválidas)
-  — referencia RF-07, RF-08, criterios de éxito de
-  [01-prd.md](../producto/01-prd.md) sección 9
-- [ ] Incluir a propósito 3-4 fragmentos **difíciles de probar** en ese
-  conjunto (script sin funciones, algo que dependa de la hora del sistema,
-  algo que lea un archivo) — verifica RF-09
+- [x] Armar el conjunto de evaluación: **20 funciones en total** (10 Python /
+  10 JavaScript-TypeScript), de las cuales 4 son fragmentos **difíciles de
+  probar** incluidos dentro del mismo conteo de 20, no aparte (script sin
+  funciones, depende de la hora del sistema, lee un archivo, dependencia de
+  red/base de datos) — verifica RF-07, RF-08, RF-09 y los criterios de éxito
+  de [01-prd.md](../producto/01-prd.md) sección 9. Cada función normal trae
+  su lista documentada de casos (camino feliz, valor límite, entrada
+  inválida) en `docs/evaluacion/`. Ver
+  [change armar-conjunto-evaluacion](../../openspec/changes/armar-conjunto-evaluacion/)
 
 ## Entregable
 
@@ -55,3 +56,4 @@ correspondiente en `docs/` se actualiza en el mismo sprint.
 | Versión | Fecha | Cambio |
 |---|---|---|
 | 0.1 | 2026-08-19 | Primera versión, contenido tomado de la Fase 0 de [04-plan.md](../gestion/04-plan.md) |
+| 0.2 | 2026-08-19 | Conjunto de evaluación armado y marcado como hecho: 20 funciones en total (10 Python / 10 JS-TS), difíciles incluidos en el conteo, no aparte. Desambigua la redacción original que los listaba como dos puntos separados. Ver `docs/evaluacion/` y [change armar-conjunto-evaluacion](../../openspec/changes/armar-conjunto-evaluacion/) |
