@@ -1,8 +1,9 @@
 # Sprint 1 — Preparación (Fase 0) — Testly
 
 Fecha: 2026-08-19
-Versión: 0.2
-Estado: por iniciar (fechas de inicio/fin se fijan en Sprint Planning)
+Versión: 0.3
+Estado: en curso
+Inicio: 2026-08-19 · Fin: 2026-09-01
 
 ## Objetivo del sprint
 
@@ -57,3 +58,4 @@ correspondiente en `docs/` se actualiza en el mismo sprint.
 |---|---|---|
 | 0.1 | 2026-08-19 | Primera versión, contenido tomado de la Fase 0 de [04-plan.md](../gestion/04-plan.md) |
 | 0.2 | 2026-08-19 | Conjunto de evaluación armado y marcado como hecho: 20 funciones en total (10 Python / 10 JS-TS), difíciles incluidos en el conteo, no aparte. Desambigua la redacción original que los listaba como dos puntos separados. Ver `docs/evaluacion/` y [change armar-conjunto-evaluacion](../../openspec/changes/armar-conjunto-evaluacion/) |
+| 0.3 | 2026-08-19 | **Fechas fijadas: Sprint 1 arranca hoy (2026-08-19), termina 2026-09-01.** Backlog 4/4 completo. Estado pasa de "por iniciar" a "en curso"; el cierre formal sigue pendiente del Sprint Review del equipo |
