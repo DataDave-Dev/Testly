@@ -19,6 +19,15 @@ Antes de abrir una PR, verificar en local:
 
 No abrir PR si alguno de estos falla.
 
+## PRs e issues
+
+Si el agente de IA abre una PR o un issue, debe usar la plantilla correspondiente en `.github`:
+
+- PR: `.github/pull_request_template.md`.
+- Issue: plantillas en `.github/ISSUE_TEMPLATE/` (`bug_report.yml` o `feature_request.yml`).
+
+Completar todos los campos obligatorios y marcar los checklists antes de abrir.
+
 ## Resolución de problemas
 
 Al resolver un bug o problema, seguir estos pasos en orden:
