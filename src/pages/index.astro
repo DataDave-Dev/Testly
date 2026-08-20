@@ -1,5 +1,6 @@
 ---
-
+import MaintenanceView from '../components/maintenance/MaintenanceView.astro';
+import '../styles/tokens.css';
 ---
 
 <html lang="es">
@@ -9,9 +10,13 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+		/>
+		<title>Testly</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<MaintenanceView />
 	</body>
 </html>

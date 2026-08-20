@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: oklch(97% 0.012 90);
+  --color-ink: oklch(15% 0 0);
+  --color-accent: oklch(88% 0.19 100);
+
+  --font-display: "Archivo Black", Impact, "Arial Black", sans-serif;
+  --font-sans: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}

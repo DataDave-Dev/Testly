@@ -1,0 +1,155 @@
+<div
+  class="root w-full min-h-screen bg-paper text-ink font-sans overflow-hidden flex flex-col justify-center"
+>
+  <div
+    class="band overflow-hidden whitespace-nowrap flex items-center bg-ink rotate-[-1.4deg] -mb-1.5 py-3.5"
+  >
+    <div class="track-l inline-flex">
+      <span
+        class="display font-display text-accent px-8"
+        style="font-size:clamp(26px,4vw,44px);"
+      >PROYECTO EN CONSTRUCCIÓN - FIME 2026 - </span>
+      <span
+        class="display font-display text-accent px-8"
+        style="font-size:clamp(26px,4vw,44px);"
+      >PROYECTO EN CONSTRUCCIÓN - FIME 2026 - </span>
+    </div>
+  </div>
+
+  <div class="text-center" style="padding: clamp(40px,7vw,88px) clamp(20px,4vw,64px);">
+    <h1
+      class="display font-display m-0 mb-5"
+      style="font-size:clamp(56px,10.5vw,144px); line-height:0.9; letter-spacing:-0.01em;"
+    >TESTLY</h1>
+    <p
+      class="font-semibold mx-auto"
+      style="font-size:clamp(15px,1.7vw,20px); max-width:640px; line-height:1.5;"
+    >
+      Pruebas unitarias generadas por IA — con la explicación de cada caso. Aún no está listo. Casi.
+    </p>
+  </div>
+
+  <div
+    class="flex justify-center flex-wrap"
+    style="gap:clamp(10px,2vw,20px); padding: 0 clamp(20px,4vw,64px) clamp(40px,7vw,88px) clamp(20px,4vw,64px);"
+  >
+    <div
+      class="border-4 border-ink bg-accent text-center"
+      style="perspective:600px; padding:18px clamp(16px,2.6vw,28px); min-width:92px;"
+    >
+      <div class="display font-display leading-none" style="transform-style:preserve-3d; font-size:clamp(32px,5vw,56px);">
+        <span data-segment="days" data-value="">00</span>
+      </div>
+      <div class="text-[11px] font-bold mt-1.5" style="letter-spacing:.1em;">DÍAS</div>
+    </div>
+    <div
+      class="border-4 border-ink text-center"
+      style="perspective:600px; padding:18px clamp(16px,2.6vw,28px); min-width:92px;"
+    >
+      <div class="display font-display leading-none" style="transform-style:preserve-3d; font-size:clamp(32px,5vw,56px);">
+        <span data-segment="hours" data-value="">00</span>
+      </div>
+      <div class="text-[11px] font-bold mt-1.5" style="letter-spacing:.1em;">HORAS</div>
+    </div>
+    <div
+      class="border-4 border-ink text-center"
+      style="perspective:600px; padding:18px clamp(16px,2.6vw,28px); min-width:92px;"
+    >
+      <div class="display font-display leading-none" style="transform-style:preserve-3d; font-size:clamp(32px,5vw,56px);">
+        <span data-segment="mins" data-value="">00</span>
+      </div>
+      <div class="text-[11px] font-bold mt-1.5" style="letter-spacing:.1em;">MIN</div>
+    </div>
+    <div
+      class="border-4 border-ink bg-ink text-accent text-center"
+      style="perspective:600px; padding:18px clamp(16px,2.6vw,28px); min-width:92px;"
+    >
+      <div class="display font-display leading-none" style="transform-style:preserve-3d; font-size:clamp(32px,5vw,56px);">
+        <span data-segment="secs" data-value="">00</span>
+      </div>
+      <div class="text-[11px] font-bold mt-1.5" style="letter-spacing:.1em;">SEG</div>
+    </div>
+  </div>
+
+  <div
+    class="band overflow-hidden whitespace-nowrap flex items-center bg-accent rotate-1 -mt-1.5 py-3"
+  >
+    <div class="track-r inline-flex">
+      <span class="display font-display px-7" style="font-size:clamp(18px,2.6vw,28px);"
+        >LANZA: <span data-launch-label></span> ★ PRUEBAS UNITARIAS ★ EXPLICADAS ★ FIME ★ </span
+      >
+      <span class="display font-display px-7" style="font-size:clamp(18px,2.6vw,28px);"
+        >LANZA: <span data-launch-label></span> ★ PRUEBAS UNITARIAS ★ EXPLICADAS ★ FIME ★ </span
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from 'gsap';
+
+  const TARGET_ISO = '2026-12-01T00:00:00-06:00';
+  const target = new Date(TARGET_ISO).getTime();
+
+  const trackL = document.querySelector<HTMLElement>('.track-l');
+  const trackR = document.querySelector<HTMLElement>('.track-r');
+  gsap.fromTo(trackL, { xPercent: 0 }, { xPercent: -50, duration: 26, ease: 'none', repeat: -1 });
+  gsap.fromTo(trackR, { xPercent: -50 }, { xPercent: 0, duration: 22, ease: 'none', repeat: -1 });
+
+  document.querySelectorAll('[data-launch-label]').forEach((el) => {
+    el.textContent = new Date(target).toLocaleDateString('es-MX', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    });
+  });
+
+  const pad = (n: number) => String(Math.max(0, n)).padStart(2, '0');
+  const segments: Record<'days' | 'hours' | 'mins' | 'secs', HTMLElement> = {
+    days: document.querySelector<HTMLElement>('[data-segment="days"]')!,
+    hours: document.querySelector<HTMLElement>('[data-segment="hours"]')!,
+    mins: document.querySelector<HTMLElement>('[data-segment="mins"]')!,
+    secs: document.querySelector<HTMLElement>('[data-segment="secs"]')!
+  };
+
+  function flip(el: HTMLElement) {
+    gsap.fromTo(
+      el,
+      { rotateX: -90, opacity: 0.4 },
+      { rotateX: 0, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' }
+    );
+  }
+
+  function tick() {
+    let diff = Math.max(0, target - Date.now());
+    const day = 86400000;
+    const hr = 3600000;
+    const min = 60000;
+    const days = Math.floor(diff / day);
+    diff -= days * day;
+    const hours = Math.floor(diff / hr);
+    diff -= hours * hr;
+    const mins = Math.floor(diff / min);
+    diff -= mins * min;
+    const secs = Math.floor(diff / 1000);
+
+    const next = { days: pad(days), hours: pad(hours), mins: pad(mins), secs: pad(secs) };
+
+    for (const key of Object.keys(segments) as Array<keyof typeof segments>) {
+      const el = segments[key];
+      if (el.dataset.value !== next[key]) {
+        el.dataset.value = next[key];
+        el.textContent = next[key];
+        flip(el);
+      }
+    }
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.6 } });
+  tl.from('h1.display', { opacity: 0, y: 24 })
+    .from('p.font-semibold', { opacity: 0, y: 20 }, '-=0.3')
+    .from('.border-4', { opacity: 0, y: 20, stagger: 0.12 }, '-=0.25');
+</script>
