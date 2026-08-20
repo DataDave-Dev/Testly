@@ -2,7 +2,7 @@
 
 Fecha: 2026-08-19
 Versión: 0.2
-Estado: por iniciar
+Estado: en curso
 Inicio: 2026-09-02 · Fin: 2026-09-15
 
 ## Objetivo del sprint
@@ -31,7 +31,9 @@ justo antes de que la Fase 2 reuse el sandbox.
   `/en-construccion` (fecha de lanzamiento + contador) a cualquier visitante
   mientras `MAINTENANCE_MODE=true`, con bypass por cookie/query param para
   el equipo (ver [02-arquitectura.md](../arquitectura/02-arquitectura.md)
-  sección 2.15). Necesario porque este sprint ya despliega a producción
+  sección 2.15). Necesario porque este sprint ya despliega a producción.
+  La vista visual con contador ya existe; quedan pendientes el middleware,
+  las variables de entorno y el bypass
 - [ ] Prueba de streaming largo desplegada: endpoint que transmita 60
   segundos y llegue completo al navegador desde el dominio de Cloudflare, no
   desde `localhost`
