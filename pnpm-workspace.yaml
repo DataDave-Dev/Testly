@@ -1,0 +1,9 @@
+onlyBuiltDependencies:
+  - esbuild
+  - workerd
+
+minimumReleaseAge: 0
+
+allowBuilds:
+  esbuild: true
+  workerd: true

@@ -287,7 +287,7 @@ justificaría solo si el esquema crece.
 | Parseo real de sintaxis (tree-sitter, `ast`, compiladores) en el MVP | Descartado por ahora, no para siempre. Los techos de Cloudflare gratis (10 ms CPU, 3 MB de bundle) lo hacen incómodo, y las aserciones por framework de la sección 2.11 cubren el modo de falla real con costo casi cero. Se reevalúa si la Fase 2 no alcanza el criterio de validez |
 | ORM completo (Prisma, TypeORM) | Hay una tabla. El costo de configuración y de arranque supera el beneficio |
 | Redis o cola de trabajos | No hay trabajo asíncrono: la llamada al modelo es síncrona con streaming. Una cola aquí solo agrega puntos de falla |
-| Docker para desarrollo | La base de datos es remota. `npm run dev` basta |
+| Docker para desarrollo | La base de datos es remota. `pnpm dev` basta |
 | Monorepo, workspaces | Es un proyecto |
 | Estado global (Redux, Zustand) | Dos islas que no comparten estado entre sí |
 | Framework de componentes (shadcn, MUI) | Traen su propia estética reconocible. Con cinco o seis componentes propios se ve intencional y pesa menos |

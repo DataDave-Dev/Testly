@@ -20,7 +20,7 @@ justo antes de que la Fase 2 reuse el sandbox.
 
 ## Sprint Backlog
 
-- [ ] Proyecto Astro con adapter de Cloudflare (`@astrojs/cloudflare`)
+- [x] Proyecto Astro con adapter de Cloudflare (`@astrojs/cloudflare`)
 - [ ] Reclutar variables de entorno para local y producción: `LLM_API_KEY`,
   `LLM_MODEL`, `LLM_EFFORT`, `MAX_CODE_CHARS`, `LLM_MAX_OUTPUT_TOKENS`,
   `MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_SECRET`, `LAUNCH_DATE` (ver
