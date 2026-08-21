@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Space+Mono:wght@400;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --paper: oklch(96% 0.018 80);
+      --paper-line: oklch(89% 0.02 80);
+      --ink: oklch(24% 0.02 40);
+      --muted: oklch(46% 0.02 40);
+      --red: oklch(52% 0.16 25);
+    }
+    .root { width:100%; background:var(--paper); color:var(--ink); font-family:'Newsreader', Georgia, serif; }
+    .mono { font-family:'Space Mono','Courier New',monospace; }
+    a { color:var(--red); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .tab { font-size:14.5px; padding-bottom:6px; border-bottom:2px solid transparent; cursor:pointer; color:var(--muted); }
+    .tab.active { color:var(--ink); border-color:var(--red); font-style:italic; }
+    .row { display:grid; grid-template-columns:110px 1fr 90px 130px; align-items:baseline; gap:18px; padding:18px 0; border-top:1.5px dashed var(--paper-line); }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="max-width:900px; margin:0 auto; padding:40px 40px 60px;">
+
+    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:30px;">
+      <div>
+        <div style="font-style:italic; font-weight:600; font-size:24px;">Hola, Ana</div>
+        <div class="mono" style="font-size:12px; color:var(--muted); margin-top:4px;">7 de 10 generaciones usadas este periodo</div>
+      </div>
+      <button style="font-family:'Space Mono', monospace; font-weight:700; font-size:13px; padding:13px 22px; background:var(--paper); color:var(--ink); border:2px solid var(--ink); border-radius:50% / 40%; cursor:pointer; transform:rotate(-2deg); box-shadow: 3px 3px 0 var(--red);">Nueva generación</button>
+    </div>
+
+    <div style="display:flex; gap:26px; border-bottom:1.5px solid var(--ink); margin-bottom:6px;">
+      <span class="tab active">Todos</span>
+      <span class="tab">Python</span>
+      <span class="tab">JavaScript</span>
+      <span class="tab">TypeScript</span>
+    </div>
+
+    <div class="row mono" style="border-top:none; font-size:11px; color:var(--muted); letter-spacing:.06em;">
+      <span>LENGUAJE</span><span>FUNCIÓN</span><span>PRUEBAS</span><span>FECHA</span>
+    </div>
+
+    <div class="row">
+      <span class="mono" style="font-size:12.5px;">Python</span>
+      <span class="mono" style="font-size:14.5px; font-weight:700;">dividir(a, b)</span>
+      <span style="font-style:italic; color:var(--muted);">3</span>
+      <a href="#" style="font-size:13px;">hoy, 14:02 →</a>
+    </div>
+    <div class="row">
+      <span class="mono" style="font-size:12.5px;">JavaScript</span>
+      <span class="mono" style="font-size:14.5px; font-weight:700;">validarEmail(str)</span>
+      <span style="font-style:italic; color:var(--muted);">4</span>
+      <a href="#" style="font-size:13px;">hoy, 11:47 →</a>
+    </div>
+    <div class="row">
+      <span class="mono" style="font-size:12.5px;">TypeScript</span>
+      <span class="mono" style="font-size:14.5px; font-weight:700;">calcularDescuento()</span>
+      <span style="font-style:italic; color:var(--muted);">3</span>
+      <a href="#" style="font-size:13px;">ayer, 20:15 →</a>
+    </div>
+    <div class="row">
+      <span class="mono" style="font-size:12.5px;">Python</span>
+      <span class="mono" style="font-size:14.5px; font-weight:700;">es_palindromo(s)</span>
+      <span style="font-style:italic; color:var(--muted);">5</span>
+      <a href="#" style="font-size:13px;">ayer, 18:03 →</a>
+    </div>
+    <div class="row">
+      <span class="mono" style="font-size:12.5px;">JavaScript</span>
+      <span class="mono" style="font-size:14.5px; font-weight:700;">debounce(fn, ms)</span>
+      <span style="font-style:italic; color:var(--muted);">3</span>
+      <a href="#" style="font-size:13px;">19 ago →</a>
+    </div>
+    <div class="row" style="border-bottom:1.5px solid var(--ink);">
+      <span class="mono" style="font-size:12.5px;">TypeScript</span>
+      <span class="mono" style="font-size:14.5px; font-weight:700;">parseQueryParams()</span>
+      <span style="font-style:italic; color:var(--muted);">4</span>
+      <a href="#" style="font-size:13px;">18 ago →</a>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

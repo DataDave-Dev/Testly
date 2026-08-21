@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --bg: oklch(18% 0.02 260);
+      --surface: oklch(23% 0.02 260);
+      --surface-2: oklch(27% 0.02 260);
+      --line: oklch(34% 0.02 260);
+      --ink: oklch(95% 0.008 260);
+      --muted: oklch(66% 0.02 260);
+      --accent: oklch(78% 0.19 155);
+      --accent-ink: oklch(16% 0.03 155);
+      --cyan: oklch(76% 0.13 230);
+    }
+    .root { width:100%; background:var(--bg); color:var(--ink); font-family:'Sora','Segoe UI',sans-serif; }
+    .mono { font-family:'IBM Plex Mono','Courier New',monospace; }
+    a { color:inherit; text-decoration:none; }
+    .pill { font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:500; padding:8px 15px; border-radius:6px; border:1px solid var(--line); cursor:pointer; color:var(--muted); }
+    .pill.active { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="max-width:1260px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:26px 40px;">
+    <div class="mono" style="font-size:19px; font-weight:600; color:var(--accent); letter-spacing:-0.02em;">testly<span style="color:var(--muted);">_</span></div>
+    <div style="display:flex; align-items:center; gap:36px;">
+      <a href="#" class="mono" style="font-size:13.5px; color:var(--muted);">Cómo funciona</a>
+      <a href="#" class="mono" style="font-size:13.5px; color:var(--muted);">Iniciar sesión (opcional)</a>
+    </div>
+  </div>
+
+  <div style="max-width:1260px; margin:0 auto; padding:36px 40px 76px; display:grid; grid-template-columns:1fr 300px; gap:48px;">
+
+    <div>
+      <h1 style="font-size:32px; font-weight:800; margin:0 0 10px; letter-spacing:-0.01em;">Pega tu código</h1>
+      <p style="font-size:15.5px; line-height:1.6; color:var(--muted); max-width:480px; margin:0 0 26px;">
+        Una función o un fragmento alcanza. Elegimos el lenguaje por ti, pero puedes corregirlo.
+      </p>
+
+      <div style="display:flex; gap:10px; margin-bottom:18px;">
+        <span class="pill active">Python</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">TypeScript</span>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden;">
+        <div style="display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--line); background:var(--surface-2);">
+          <span style="width:10px; height:10px; border-radius:50%; background:oklch(70% 0.15 25);"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:oklch(80% 0.13 90);"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:var(--accent);"></span>
+          <span class="mono" style="margin-left:8px; font-size:12px; color:var(--muted);">input.py</span>
+        </div>
+        <div class="mono" style="padding:20px 22px; font-size:13.5px; line-height:1.85; white-space:pre;">
+<span style="color:var(--cyan);">def</span> <span style="color:oklch(85% 0.14 90);">calcular_descuento</span>(precio, porcentaje):
+    <span style="color:var(--cyan);">if</span> porcentaje &lt; 0 <span style="color:var(--cyan);">or</span> porcentaje &gt; 100:
+        <span style="color:var(--cyan);">raise</span> ValueError(<span style="color:oklch(78% 0.1 120);">"porcentaje inválido"</span>)
+    <span style="color:var(--cyan);">return</span> precio - (precio * porcentaje / 100)</div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+        <span class="mono" style="font-size:12px; color:var(--muted);">4 líneas · detectado: Python</span>
+        <button class="mono" style="font-weight:600; font-size:14px; padding:13px 24px; border-radius:6px; background:var(--accent); color:var(--accent-ink); border:none; cursor:pointer;">Generar pruebas →</button>
+      </div>
+    </div>
+
+    <div>
+      <div style="display:flex; gap:12px; margin-bottom:22px;">
+        <span class="mono" style="color:var(--accent); font-size:13px; font-weight:600; flex-shrink:0;">01</span>
+        <p style="font-size:13.5px; line-height:1.55; margin:0; color:var(--muted);">Sin cuenta: 3 generaciones al día. Con sesión, más cuota e historial.</p>
+      </div>
+      <div style="display:flex; gap:12px; margin-bottom:22px;">
+        <span class="mono" style="color:var(--accent); font-size:13px; font-weight:600; flex-shrink:0;">02</span>
+        <p style="font-size:13.5px; line-height:1.55; margin:0; color:var(--muted);">El lenguaje se detecta solo; corrígelo si hace falta antes de generar.</p>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <span class="mono" style="color:var(--accent); font-size:13px; font-weight:600; flex-shrink:0;">03</span>
+        <p style="font-size:13.5px; line-height:1.55; margin:0; color:var(--muted);">Tu código se lee, nunca se ejecuta en el servidor.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

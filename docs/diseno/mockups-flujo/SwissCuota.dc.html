@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --bg: oklch(98% 0.004 90);
+      --ink: oklch(15% 0 0);
+      --line: oklch(85% 0.004 90);
+      --muted: oklch(48% 0.004 90);
+      --blue: oklch(55% 0.19 260);
+    }
+    .root { width:100%; min-height:100%; background:var(--bg); color:var(--ink); font-family:'Archivo','Segoe UI',sans-serif; display:flex; align-items:center; justify-content:center; }
+    .mono { font-family:'JetBrains Mono','Courier New',monospace; }
+    .btn { font-family:'JetBrains Mono', monospace; font-weight:500; font-size:13.5px; padding:15px 26px; border:1.5px solid var(--ink); cursor:pointer; }
+    .btn.primary { background:var(--ink); color:var(--bg); }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="max-width:640px; width:100%; border:1.5px solid var(--ink); text-align:center;">
+    <div style="padding:12px; border-bottom:1.5px solid var(--ink); font-size:11px; font-weight:700; letter-spacing:.12em; color:var(--blue);">LÍMITE ALCANZADO</div>
+
+    <div style="padding:44px 40px 30px;">
+      <h1 style="font-size:34px; font-weight:800; line-height:1.15; margin:0 0 16px; letter-spacing:-0.01em;">Se acabaron tus pruebas por hoy</h1>
+      <p style="font-size:14.5px; color:var(--muted); line-height:1.6; max-width:440px; margin:0 auto 34px;">
+        Sin cuenta, Testly da 3 generaciones al día por IP — y ya usaste las tuyas. Crea una sesión gratis para más cuota e historial.
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); border-top:1.5px solid var(--ink); border-bottom:1.5px solid var(--ink);">
+      <div style="padding:20px 0; border-right:1.5px solid var(--ink);">
+        <div class="mono" style="font-size:32px; font-weight:800; color:var(--blue);">14</div>
+        <div class="label" style="font-size:10px; font-weight:700; letter-spacing:.1em; color:var(--muted); margin-top:4px;">HORAS</div>
+      </div>
+      <div style="padding:20px 0; border-right:1.5px solid var(--ink);">
+        <div class="mono" style="font-size:32px; font-weight:800; color:var(--blue);">32</div>
+        <div class="label" style="font-size:10px; font-weight:700; letter-spacing:.1em; color:var(--muted); margin-top:4px;">MIN</div>
+      </div>
+      <div style="padding:20px 0;">
+        <div class="mono" style="font-size:32px; font-weight:800; color:var(--blue);">08</div>
+        <div class="label" style="font-size:10px; font-weight:700; letter-spacing:.1em; color:var(--muted); margin-top:4px;">SEG</div>
+      </div>
+    </div>
+
+    <div style="display:flex;">
+      <button class="btn primary" style="flex:1; border-right:none;">Crear sesión gratis</button>
+      <button class="btn" style="flex:1; background:var(--bg);">Volver mañana</button>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

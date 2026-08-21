@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --bg: oklch(18% 0.02 260);
+      --surface: oklch(23% 0.02 260);
+      --surface-2: oklch(27% 0.02 260);
+      --line: oklch(34% 0.02 260);
+      --ink: oklch(95% 0.008 260);
+      --muted: oklch(66% 0.02 260);
+      --accent: oklch(78% 0.19 155);
+      --accent-ink: oklch(16% 0.03 155);
+    }
+    .root { width:100%; background:var(--bg); color:var(--ink); font-family:'Sora','Segoe UI',sans-serif; }
+    .mono { font-family:'IBM Plex Mono','Courier New',monospace; }
+    .btn { font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:13px; padding:11px 18px; border-radius:6px; border:1px solid var(--line); background:transparent; color:var(--ink); cursor:pointer; }
+    .btn.primary { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+    .tag { font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; padding:4px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted); white-space:nowrap; }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="max-width:1180px; margin:0 auto; padding:56px 40px;">
+
+    <div style="background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden;">
+
+      <div style="display:grid; grid-template-columns:2fr 1fr; border-bottom:1px solid var(--line);">
+        <div style="padding:24px 28px; border-right:1px solid var(--line);">
+          <div class="mono" style="font-size:11px; color:var(--muted); letter-spacing:.1em; margin-bottom:8px;">RESULTADO</div>
+          <div class="mono" style="font-size:22px; font-weight:600;">dividir.py</div>
+        </div>
+        <div style="display:flex;">
+          <div style="flex:1; padding:24px 20px; border-right:1px solid var(--line);">
+            <div class="mono" style="font-size:11px; color:var(--muted); letter-spacing:.1em; margin-bottom:8px;">LENGUAJE</div>
+            <div style="font-weight:600; font-size:14px;">Python · pytest</div>
+          </div>
+          <div style="flex:1; padding:24px 20px;">
+            <div class="mono" style="font-size:11px; color:var(--muted); letter-spacing:.1em; margin-bottom:8px;">CASOS</div>
+            <div style="font-weight:600; font-size:14px; color:var(--accent);">3 pruebas</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px; padding:16px 28px; border-bottom:1px solid var(--line);">
+        <button class="btn">Copiar archivo</button>
+        <button class="btn primary">Descargar test_dividir.py</button>
+      </div>
+
+      <div style="border-bottom:1px solid var(--line); padding:22px 28px; display:flex; gap:18px;">
+        <span class="mono" style="font-size:26px; font-weight:700; color:var(--accent); width:32px; flex-shrink:0;">01</span>
+        <div style="flex:1;">
+          <div class="mono" style="font-size:14px; margin-bottom:6px;">test_dividir_normal</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.5; max-width:540px;">Divide dos enteros válidos y confirma el resultado exacto.</div>
+        </div>
+        <span class="tag">caso feliz</span>
+      </div>
+
+      <div style="border-bottom:1px solid var(--line); padding:22px 28px; display:flex; gap:18px;">
+        <span class="mono" style="font-size:26px; font-weight:700; color:var(--accent); width:32px; flex-shrink:0;">02</span>
+        <div style="flex:1;">
+          <div class="mono" style="font-size:14px; margin-bottom:6px;">test_dividir_entre_cero</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.5; max-width:540px;">Divisor en 0 → verifica que se lance <span class="mono">ValueError</span>, no que truene.</div>
+        </div>
+        <span class="tag">caso límite</span>
+      </div>
+
+      <div style="border-bottom:1px solid var(--line); padding:22px 28px; display:flex; gap:18px;">
+        <span class="mono" style="font-size:26px; font-weight:700; color:var(--accent); width:32px; flex-shrink:0;">03</span>
+        <div style="flex:1;">
+          <div class="mono" style="font-size:14px; margin-bottom:6px;">test_dividir_tipo_invalido</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.5; max-width:540px;">Un string donde se espera un número. Cubre entrada mal tipada.</div>
+        </div>
+        <span class="tag">caso de error</span>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; padding:16px 28px;">
+        <span class="mono" style="font-size:12px; color:var(--muted);">3 pruebas generadas · 0 sospechosas</span>
+        <span class="mono" style="font-size:12px; color:var(--muted);">verificación por reglas, sin ejecutar código</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

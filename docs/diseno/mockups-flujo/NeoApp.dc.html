@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --paper: oklch(97% 0.012 90);
+      --ink: oklch(15% 0 0);
+      --accent: oklch(88% 0.19 100);
+    }
+    .root { width:100%; background:var(--paper); color:var(--ink); font-family:'Space Grotesk','Segoe UI',sans-serif; }
+    .display { font-family:'Archivo Black', Impact, 'Arial Black', sans-serif; }
+    .mono { font-family:'Space Mono','Courier New',monospace; }
+    a { color:inherit; text-decoration:none; }
+    .pill { font-weight:700; font-size:13px; padding:9px 16px; border:3px solid var(--ink); cursor:pointer; }
+    .pill.active { background:var(--ink); color:var(--accent); }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="display:flex; justify-content:space-between; align-items:center; padding:20px 40px; border-bottom:4px solid var(--ink); max-width:1260px; margin:0 auto;">
+    <div class="display" style="font-size:21px;">TESTLY</div>
+    <div style="display:flex; align-items:center; gap:30px;">
+      <a href="#" style="font-weight:700; font-size:13px; text-transform:uppercase;">Cómo funciona</a>
+      <a href="#" style="font-weight:700; font-size:13px; text-transform:uppercase;">Iniciar sesión (opcional)</a>
+    </div>
+  </div>
+
+  <div style="max-width:1260px; margin:0 auto; padding:48px 40px 70px; display:grid; grid-template-columns:1fr 300px; gap:48px;">
+
+    <div>
+      <h1 class="display" style="font-size:34px; text-transform:uppercase; margin:0 0 10px;">Pega tu código</h1>
+      <p style="font-size:15.5px; margin:0 0 26px; max-width:520px; line-height:1.6;">
+        Una función o un fragmento alcanza. Elegimos el lenguaje por ti, pero puedes corregirlo.
+      </p>
+
+      <div style="display:flex; gap:10px; margin-bottom:16px;">
+        <span class="pill active">Python</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">TypeScript</span>
+      </div>
+
+      <div style="border:4px solid var(--ink); background:var(--paper);">
+        <div class="mono" style="padding:20px 22px; font-size:13.5px; line-height:1.85; white-space:pre; font-weight:700;">
+def calcular_descuento(precio, porcentaje):
+    if porcentaje &lt; 0 or porcentaje &gt; 100:
+        raise ValueError("porcentaje inválido")
+    return precio - (precio * porcentaje / 100)</div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:22px;">
+        <span class="mono" style="font-size:12px; font-weight:700;">4 LÍNEAS · DETECTADO: PYTHON</span>
+        <button style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14.5px; padding:15px 28px; background:var(--accent); color:var(--ink); border:3px solid var(--ink); cursor:pointer;">
+          Generar pruebas
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <div style="display:flex; gap:12px; margin-bottom:22px;">
+        <div class="display" style="width:30px; height:30px; flex-shrink:0; background:var(--accent); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:14px;">1</div>
+        <p style="font-size:13.5px; line-height:1.55; margin:0; font-weight:500;">Sin cuenta: 3 generaciones al día. Con sesión, más cuota e historial.</p>
+      </div>
+      <div style="display:flex; gap:12px; margin-bottom:22px;">
+        <div class="display" style="width:30px; height:30px; flex-shrink:0; background:var(--accent); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:14px;">2</div>
+        <p style="font-size:13.5px; line-height:1.55; margin:0; font-weight:500;">El lenguaje se detecta solo; corrígelo si hace falta antes de generar.</p>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <div class="display" style="width:30px; height:30px; flex-shrink:0; background:var(--accent); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:14px;">3</div>
+        <p style="font-size:13.5px; line-height:1.55; margin:0; font-weight:500;">Tu código se lee, nunca se ejecuta en el servidor.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

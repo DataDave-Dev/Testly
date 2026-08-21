@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --bg: oklch(98% 0.004 90);
+      --ink: oklch(15% 0 0);
+      --line: oklch(85% 0.004 90);
+      --muted: oklch(48% 0.004 90);
+      --blue: oklch(55% 0.19 260);
+    }
+    .root { width:100%; background:var(--bg); color:var(--ink); font-family:'Archivo','Segoe UI',sans-serif; }
+    .mono { font-family:'JetBrains Mono','Courier New',monospace; }
+    a { color:inherit; text-decoration:none; }
+    .label { font-size:11px; font-weight:700; letter-spacing:.12em; color:var(--muted); text-transform:uppercase; }
+    .tab { font-family:'JetBrains Mono', monospace; font-size:12.5px; font-weight:500; padding:9px 16px; border:1.5px solid var(--ink); cursor:pointer; }
+    .tab.active { background:var(--ink); color:var(--bg); }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="max-width:1180px; margin:0 auto; border-left:1.5px solid var(--ink); border-right:1.5px solid var(--ink);">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:22px 32px; border-bottom:1.5px solid var(--ink);">
+      <div style="font-weight:800; font-size:19px; letter-spacing:-0.01em;">TESTLY</div>
+      <div style="display:flex; align-items:center; gap:32px;">
+        <a href="#" style="font-size:13.5px; font-weight:600;">Cómo funciona</a>
+        <a href="#" style="font-size:13.5px; font-weight:600;">Iniciar sesión (opcional)</a>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 280px;">
+      <div style="padding:36px 32px; border-right:1.5px solid var(--ink);">
+        <div class="label" style="margin-bottom:10px;">Pantalla principal</div>
+        <h1 style="font-size:28px; font-weight:800; margin:0 0 10px; letter-spacing:-0.01em;">Pega tu código</h1>
+        <p style="font-size:14.5px; color:var(--muted); line-height:1.6; max-width:460px; margin:0 0 24px;">Una función o un fragmento alcanza. Elegimos el lenguaje por ti, pero puedes corregirlo.</p>
+
+        <div style="display:flex; gap:8px; margin-bottom:0;">
+          <span class="tab active">Python</span>
+          <span class="tab">JavaScript</span>
+          <span class="tab">TypeScript</span>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div style="flex:1; padding:22px 26px; border-bottom:1.5px solid var(--ink);"><div class="label" style="margin-bottom:6px;">01</div><div style="font-size:13px; line-height:1.5;">Sin cuenta: 3 generaciones al día. Con sesión, más cuota e historial.</div></div>
+        <div style="flex:1; padding:22px 26px; border-bottom:1.5px solid var(--ink);"><div class="label" style="margin-bottom:6px;">02</div><div style="font-size:13px; line-height:1.5;">El lenguaje se detecta solo; corrígelo si hace falta.</div></div>
+        <div style="flex:1; padding:22px 26px;"><div class="label" style="margin-bottom:6px;">03</div><div style="font-size:13px; line-height:1.5;">Tu código se lee, nunca se ejecuta en el servidor.</div></div>
+      </div>
+    </div>
+
+    <div style="border-top:1.5px solid var(--ink); display:grid; grid-template-columns:90px 1fr; border-bottom:1.5px solid var(--ink);">
+      <div style="padding:20px 32px; font-size:11px; font-weight:700; color:var(--muted);" class="mono">input.py</div>
+      <div class="mono" style="padding:20px 24px 20px 0; font-size:13.5px; line-height:1.8; white-space:pre; border-left:1.5px solid var(--ink);">def calcular_descuento(precio, porcentaje):
+    if porcentaje &lt; 0 or porcentaje &gt; 100:
+        raise ValueError("porcentaje inválido")
+    return precio - (precio * porcentaje / 100)</div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:18px 32px;">
+      <span class="mono" style="font-size:12px; color:var(--muted);">4 líneas · detectado: Python</span>
+      <button class="mono" style="font-weight:600; font-size:13.5px; padding:13px 24px; background:var(--ink); color:var(--bg); border:none; cursor:pointer;">Generar pruebas →</button>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

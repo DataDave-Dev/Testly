@@ -1,0 +1,34 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 980, "title": "Landing" },
+    { "file": "NeoApp.dc.html", "x": 1600, "y": 0, "w": 1440, "h": 780, "title": "Pantalla principal" },
+    { "file": "NeoResultados.dc.html", "x": 3200, "y": 0, "w": 1440, "h": 780, "title": "Resultados" },
+    { "file": "NeoHistorial.dc.html", "x": 4800, "y": 0, "w": 1440, "h": 900, "title": "Historial" },
+    { "file": "NeoCuota.dc.html", "x": 6400, "y": 0, "w": 1440, "h": 900, "title": "Límite de cuota" },
+
+    { "file": "TerminalLanding.dc.html", "x": 0, "y": 1140, "w": 1440, "h": 980, "title": "Landing" },
+    { "file": "TerminalApp.dc.html", "x": 1600, "y": 1140, "w": 1440, "h": 780, "title": "Pantalla principal" },
+    { "file": "TerminalResultados.dc.html", "x": 3200, "y": 1140, "w": 1440, "h": 780, "title": "Resultados" },
+    { "file": "TerminalHistorial.dc.html", "x": 4800, "y": 1140, "w": 1440, "h": 900, "title": "Historial" },
+    { "file": "TerminalCuota.dc.html", "x": 6400, "y": 1140, "w": 1440, "h": 900, "title": "Límite de cuota" },
+
+    { "file": "EditorialLanding.dc.html", "x": 0, "y": 2280, "w": 1440, "h": 980, "title": "Landing" },
+    { "file": "EditorialApp.dc.html", "x": 1600, "y": 2280, "w": 1440, "h": 780, "title": "Pantalla principal" },
+    { "file": "EditorialResultados.dc.html", "x": 3200, "y": 2280, "w": 1440, "h": 780, "title": "Resultados" },
+    { "file": "EditorialHistorial.dc.html", "x": 4800, "y": 2280, "w": 1440, "h": 900, "title": "Historial" },
+    { "file": "EditorialCuota.dc.html", "x": 6400, "y": 2280, "w": 1440, "h": 900, "title": "Límite de cuota" },
+
+    { "file": "SwissLanding.dc.html", "x": 0, "y": 3420, "w": 1440, "h": 980, "title": "Landing" },
+    { "file": "SwissApp.dc.html", "x": 1600, "y": 3420, "w": 1440, "h": 780, "title": "Pantalla principal" },
+    { "file": "SwissResultados.dc.html", "x": 3200, "y": 3420, "w": 1440, "h": 780, "title": "Resultados" },
+    { "file": "SwissHistorial.dc.html", "x": 4800, "y": 3420, "w": 1440, "h": 900, "title": "Historial" },
+    { "file": "SwissCuota.dc.html", "x": 6400, "y": 3420, "w": 1440, "h": 900, "title": "Límite de cuota" }
+  ],
+  "annotations": [
+    { "id": "note-row-neo", "x": -420, "y": 380, "w": 380, "text": "PROPUESTA 1\nNeobrutalista — tu marca actual" },
+    { "id": "note-row-terminal", "x": -420, "y": 1520, "w": 380, "text": "PROPUESTA 2\nTerminal dev-tool" },
+    { "id": "note-row-editorial", "x": -420, "y": 2660, "w": 380, "text": "PROPUESTA 3\nEditorial / cuaderno" },
+    { "id": "note-row-swiss", "x": -420, "y": 3800, "w": 380, "text": "PROPUESTA 4\nGrid suizo" }
+  ],
+  "launch": { "view": "canvas" }
+}
