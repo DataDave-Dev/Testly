@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Space+Mono:wght@400;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --paper: oklch(96% 0.018 80);
+      --ink: oklch(24% 0.02 40);
+      --muted: oklch(46% 0.02 40);
+      --red: oklch(52% 0.16 25);
+    }
+    .root { width:100%; min-height:100%; background:var(--paper); color:var(--ink); font-family:'Newsreader', Georgia, serif; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+    .mono { font-family:'Space Mono','Courier New',monospace; }
+    a { color:var(--red); text-decoration:none; }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="padding:70px 40px; max-width:560px;">
+    <div class="mono" style="font-size:12px; font-weight:700; color:var(--red); border:1.5px solid var(--red); border-radius:999px; display:inline-block; padding:6px 14px; margin-bottom:26px;">LÍMITE ALCANZADO</div>
+    <h1 style="font-size:40px; font-weight:600; line-height:1.2; margin:0 0 18px;">
+      Se acabaron tus pruebas <span style="font-style:italic; color:var(--red);">por hoy</span>
+    </h1>
+    <p style="font-size:16px; color:var(--muted); line-height:1.65; margin:0 0 40px;">
+      Sin cuenta, Testly da 3 generaciones al día por IP — y ya usaste las tuyas. Crea una sesión gratis para más cuota e historial.
+    </p>
+
+    <div style="display:flex; justify-content:center; gap:26px; margin-bottom:8px;">
+      <div><div class="mono" style="font-size:32px; font-weight:700; border-bottom:2px solid var(--ink); padding-bottom:4px; min-width:44px;">14</div><div style="font-size:11px; font-style:italic; color:var(--muted); margin-top:6px;">horas</div></div>
+      <div><div class="mono" style="font-size:32px; font-weight:700; border-bottom:2px solid var(--ink); padding-bottom:4px; min-width:44px;">32</div><div style="font-size:11px; font-style:italic; color:var(--muted); margin-top:6px;">min</div></div>
+      <div><div class="mono" style="font-size:32px; font-weight:700; border-bottom:2px solid var(--ink); padding-bottom:4px; min-width:44px;">08</div><div style="font-size:11px; font-style:italic; color:var(--muted); margin-top:6px;">seg</div></div>
+    </div>
+    <div style="font-style:italic; color:var(--muted); font-size:13px; margin-bottom:38px;">vuelve a intentarlo en</div>
+
+    <div style="display:flex; justify-content:center; align-items:center; gap:22px; flex-wrap:wrap;">
+      <button style="font-family:'Space Mono', monospace; font-weight:700; font-size:14px; padding:15px 28px; background:var(--paper); color:var(--ink); border:2px solid var(--ink); border-radius:50% / 40%; cursor:pointer; transform:rotate(-2deg); box-shadow: 3px 3px 0 var(--red);">Crear sesión gratis</button>
+      <a href="#" style="font-size:15px;">Volver mañana</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

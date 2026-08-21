@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.2.3",
+    "@better-auth/infra": "^0.4.1",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.2.4",
     "gsap": "^3.15.0",

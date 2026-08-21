@@ -21,6 +21,7 @@ Contexto: proyecto escolar (FIME).
 | [07-metodologia.md](gestion/07-metodologia.md) | Metodología de desarrollo (Scrum), equipo con matrícula, roles, sprints, ceremonias |
 | [08-limites.md](gestion/08-limites.md) | Fecha límite, retención y borrado de datos, acceso, tope de salida del modelo, tabla de límites técnicos |
 | [09-carta-patrocinadora.md](gestion/09-carta-patrocinadora.md) | Carta patrocinadora (project charter): beneficio, entregables, medidas de éxito, fechas y roles Scrum |
+| [acta-constitutiva.docx](gestion/acta-constitutiva.docx) | Acta constitutiva del proyecto: resumen ejecutivo, definición del proyecto, visión, objetivos, alcance, entregables |
 
 ## Estructura de carpetas
 
@@ -60,3 +61,4 @@ encaja en ninguna, se discute antes de crear una carpeta nueva.
 | 1.2 | 2026-08-19 | **RF-25 nuevo: ejecución opcional de las pruebas generadas en un sandbox del navegador** (Pyodide para Python, runner propio compatible con Vitest para JS/TS), nunca en el servidor. Revierte parcialmente la decisión original de "no ejecutar nada" — el sandbox de *servidor* (Docker/Firecracker/E2B/Judge0) sigue descartado, el de *cliente* no. RNF-03, RF-12 y la lista de alcance del PRD se actualizan; nueva sección 2.14 en 02-arquitectura.md; Fase 1 de 04-plan.md gana esta pieza, reusada en Fase 2 para automatizar la corrida del conjunto de evaluación. Investigación de alternativas de sandboxing hecha antes de decidir |
 | 1.3 | 2026-08-19 | **Calendario de sprints fijado.** Sprint 1 arranca hoy (2026-08-19), termina 2026-09-01; tabla completa de fechas por sprint hasta el deadline (2026-12-01) en 04-plan.md, con 6 días de colchón al final. Deja de estar pendiente de Sprint Planning el reparto de fechas por fase |
 | 1.4 | 2026-08-19 | **sprint-02.md creado**, mitad 1/2 de la Fase 1. **Modo mantenimiento nuevo**: página "en construcción" con contador para cualquier visitante mientras el proyecto no es público, con bypass para el equipo — necesario porque Sprint 2 ya despliega a producción. Nueva sección 2.15 en 02-arquitectura.md, tres variables de entorno nuevas (`MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_SECRET`, `LAUNCH_DATE`) |
+| 1.5 | 2026-08-21 | Se agrega [acta-constitutiva.docx](gestion/acta-constitutiva.docx) al índice — ya existía (versión 0.2), no estaba listada |

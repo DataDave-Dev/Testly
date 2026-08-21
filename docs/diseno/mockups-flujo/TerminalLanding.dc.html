@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --bg: oklch(18% 0.02 260);
+      --surface: oklch(23% 0.02 260);
+      --surface-2: oklch(27% 0.02 260);
+      --line: oklch(34% 0.02 260);
+      --ink: oklch(95% 0.008 260);
+      --muted: oklch(66% 0.02 260);
+      --accent: oklch(78% 0.19 155);
+      --accent-ink: oklch(16% 0.03 155);
+      --cyan: oklch(76% 0.13 230);
+    }
+    .root {
+      width: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Sora', 'Segoe UI', sans-serif;
+    }
+    .mono { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 14px;
+      padding: 13px 22px; border-radius: 6px; border: 1px solid transparent; cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); }
+    .btn-ghost { border-color: var(--line); color: var(--ink); }
+    .chip {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500;
+      color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px;
+    }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="max-width:1260px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:26px 40px;">
+    <div class="mono" style="font-size:19px; font-weight:600; color:var(--accent); letter-spacing:-0.02em;">testly<span style="color:var(--muted);">_</span></div>
+    <div style="display:flex; align-items:center; gap:36px;">
+      <a href="#" class="mono" style="font-size:13.5px; color:var(--muted);">Cómo funciona</a>
+      <a href="#" class="mono" style="font-size:13.5px; color:var(--muted);">Ejemplos</a>
+      <a href="#" class="btn btn-primary">Generar pruebas →</a>
+    </div>
+  </div>
+
+  <div style="max-width:1260px; margin:0 auto; padding:52px 40px 76px; display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:center;">
+
+    <div>
+      <div class="chip" style="margin-bottom:22px;">PROYECTO ESCOLAR · FIME 2026</div>
+      <h1 style="font-size:52px; font-weight:800; line-height:1.05; letter-spacing:-0.02em; margin:0 0 20px;">
+        Pega tu código.<br>Recibe pruebas unitarias<span style="color:var(--accent);">.</span>
+      </h1>
+      <p style="font-size:17px; line-height:1.6; color:var(--muted); max-width:460px; margin:0 0 30px;">
+        Testly no solo genera el archivo de prueba: te explica por qué se eligió cada caso, para que la próxima vez sepas escribirlas tú.
+      </p>
+      <div style="display:flex; gap:14px; margin-bottom:28px;">
+        <a href="#" class="btn btn-primary">Probar con mi código</a>
+        <a href="#" class="btn btn-ghost">Ver un ejemplo</a>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <span class="chip">Sin cuenta</span>
+        <span class="chip">Python</span>
+        <span class="chip">JavaScript / TS</span>
+        <span class="chip">pytest · vitest</span>
+      </div>
+    </div>
+
+    <div style="background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow: 0 30px 60px -20px oklch(0% 0 0 / 0.5);">
+      <div style="display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--line); background:var(--surface-2);">
+        <span style="width:10px; height:10px; border-radius:50%; background:oklch(70% 0.15 25);"></span>
+        <span style="width:10px; height:10px; border-radius:50%; background:oklch(80% 0.13 90);"></span>
+        <span style="width:10px; height:10px; border-radius:50%; background:var(--accent);"></span>
+        <span class="mono" style="margin-left:8px; font-size:12px; color:var(--muted);">dividir.py</span>
+      </div>
+      <div class="mono" style="padding:20px 22px; font-size:13px; line-height:1.85; white-space:pre;">
+<span style="color:var(--cyan);">def</span> <span style="color:oklch(85% 0.14 90);">dividir</span>(a, b):
+    <span style="color:var(--cyan);">if</span> b == 0:
+        <span style="color:var(--cyan);">raise</span> ValueError(<span style="color:oklch(78% 0.1 120);">"no se puede dividir entre 0"</span>)
+    <span style="color:var(--cyan);">return</span> a / b</div>
+      <div style="border-top:1px solid var(--line); padding:18px 22px 22px;">
+        <div class="mono" style="font-size:11px; color:var(--muted); letter-spacing:.08em; margin-bottom:12px;">TESTS GENERADOS · test_dividir.py</div>
+
+        <div style="display:flex; gap:10px; margin-bottom:12px;">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="flex-shrink:0; margin-top:2px;"><path d="M4 10.5L8 14.5L16 5.5" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="mono" style="font-size:12.5px;">test_dividir_normal</div>
+            <div style="font-size:12px; color:var(--muted); margin-top:2px;">Caso feliz: división válida entre dos enteros.</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="flex-shrink:0; margin-top:2px;"><path d="M4 10.5L8 14.5L16 5.5" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <div class="mono" style="font-size:12.5px;">test_dividir_entre_cero</div>
+            <div style="font-size:12px; color:var(--muted); margin-top:2px;">Caso límite: divisor en 0 → verifica que se lanza <span class="mono">ValueError</span>, no solo que no truena.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="border-top:1px solid var(--line);">
+    <div style="max-width:1260px; margin:0 auto; padding:56px 40px; display:grid; grid-template-columns: repeat(3, 1fr); gap:28px;">
+
+      <div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="margin-bottom:14px;"><path d="M4 6h16M4 12h10M4 18h16" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
+        <div style="font-weight:700; font-size:15.5px; margin-bottom:8px;">Explica el criterio</div>
+        <div style="font-size:13.5px; color:var(--muted); line-height:1.6;">Cada caso viene con la razón por la que se eligió: qué cubre y qué podría romperse ahí.</div>
+      </div>
+      <div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="margin-bottom:14px;"><circle cx="12" cy="12" r="9" stroke="var(--accent)" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
+        <div style="font-weight:700; font-size:15.5px; margin-bottom:8px;">Enseña, no reemplaza</div>
+        <div style="font-size:13.5px; color:var(--muted); line-height:1.6;">La meta es que después de un par de usos sepas escribir tus propias pruebas sin la herramienta.</div>
+      </div>
+      <div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="margin-bottom:14px;"><rect x="4" y="9" width="16" height="11" rx="2" stroke="var(--accent)" stroke-width="2"/><path d="M8 9V6a4 4 0 018 0v3" stroke="var(--accent)" stroke-width="2"/></svg>
+        <div style="font-weight:700; font-size:15.5px; margin-bottom:8px;">Nada se ejecuta en el servidor</div>
+        <div style="font-size:13.5px; color:var(--muted); line-height:1.6;">Tu código nunca corre del lado del servidor. La verificación es por reglas, no por ejecución.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="border-top:1px solid var(--line); padding:24px 40px;">
+    <div style="max-width:1260px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+      <span class="mono" style="font-size:12px; color:var(--muted);">testly · proyecto escolar FIME</span>
+      <span class="mono" style="font-size:12px; color:var(--muted);">python · javascript · typescript</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

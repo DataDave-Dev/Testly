@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --bg: oklch(18% 0.02 260);
+      --surface: oklch(23% 0.02 260);
+      --line: oklch(34% 0.02 260);
+      --ink: oklch(95% 0.008 260);
+      --muted: oklch(66% 0.02 260);
+      --accent: oklch(78% 0.19 155);
+      --accent-ink: oklch(16% 0.03 155);
+      --py: oklch(76% 0.13 230);
+      --js: oklch(85% 0.14 90);
+      --ts: oklch(74% 0.13 260);
+    }
+    .root { width:100%; background:var(--bg); color:var(--ink); font-family:'Sora','Segoe UI',sans-serif; }
+    .mono { font-family:'IBM Plex Mono','Courier New',monospace; }
+    a { color:inherit; text-decoration:none; }
+    .chip { font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:500; padding:8px 15px; border-radius:6px; border:1px solid var(--line); color:var(--muted); cursor:pointer; }
+    .chip.active { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+    .card { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px; display:flex; flex-direction:column; gap:10px; }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="max-width:1180px; margin:0 auto; padding:44px 40px 0;">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div class="mono" style="width:40px; height:40px; border-radius:50%; background:var(--accent); color:var(--accent-ink); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px;">AM</div>
+        <div>
+          <div style="font-size:18px; font-weight:700;">Hola, Ana</div>
+          <div class="mono" style="font-size:12px; color:var(--muted);">7 de 10 generaciones usadas este periodo</div>
+        </div>
+      </div>
+      <button class="mono" style="background:var(--accent); color:var(--accent-ink); border:none; border-radius:6px; padding:13px 22px; font-size:13.5px; font-weight:600; cursor:pointer;">+ Nueva generación</button>
+    </div>
+
+    <div style="display:flex; gap:10px; margin-bottom:26px;">
+      <span class="chip active">Todos</span>
+      <span class="chip">Python</span>
+      <span class="chip">JavaScript</span>
+      <span class="chip">TypeScript</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; padding-bottom:48px;">
+
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center;"><span class="mono" style="font-size:11px; color:var(--py);">PYTHON</span><span class="mono" style="font-size:11px; color:var(--muted);">hoy, 14:02</span></div>
+        <div class="mono" style="font-size:14px; font-weight:600;">dividir(a, b)</div>
+        <div class="mono" style="font-size:12px; color:var(--muted);">if b == 0: raise Va...</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;"><span style="font-size:12px; color:var(--muted);">3 pruebas</span><a href="#" class="mono" style="font-size:12px; color:var(--accent);">Ver de nuevo →</a></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center;"><span class="mono" style="font-size:11px; color:var(--js);">JAVASCRIPT</span><span class="mono" style="font-size:11px; color:var(--muted);">hoy, 11:47</span></div>
+        <div class="mono" style="font-size:14px; font-weight:600;">validarEmail(str)</div>
+        <div class="mono" style="font-size:12px; color:var(--muted);">return /^[^@]+@.../ ...</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;"><span style="font-size:12px; color:var(--muted);">4 pruebas</span><a href="#" class="mono" style="font-size:12px; color:var(--accent);">Ver de nuevo →</a></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center;"><span class="mono" style="font-size:11px; color:var(--ts);">TYPESCRIPT</span><span class="mono" style="font-size:11px; color:var(--muted);">ayer, 20:15</span></div>
+        <div class="mono" style="font-size:14px; font-weight:600;">calcularDescuento()</div>
+        <div class="mono" style="font-size:12px; color:var(--muted);">function calcularDes...</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;"><span style="font-size:12px; color:var(--muted);">3 pruebas</span><a href="#" class="mono" style="font-size:12px; color:var(--accent);">Ver de nuevo →</a></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center;"><span class="mono" style="font-size:11px; color:var(--py);">PYTHON</span><span class="mono" style="font-size:11px; color:var(--muted);">ayer, 18:03</span></div>
+        <div class="mono" style="font-size:14px; font-weight:600;">es_palindromo(s)</div>
+        <div class="mono" style="font-size:12px; color:var(--muted);">return s == s[::-1]</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;"><span style="font-size:12px; color:var(--muted);">5 pruebas</span><a href="#" class="mono" style="font-size:12px; color:var(--accent);">Ver de nuevo →</a></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center;"><span class="mono" style="font-size:11px; color:var(--js);">JAVASCRIPT</span><span class="mono" style="font-size:11px; color:var(--muted);">19 ago, 09:30</span></div>
+        <div class="mono" style="font-size:14px; font-weight:600;">debounce(fn, ms)</div>
+        <div class="mono" style="font-size:12px; color:var(--muted);">let timer; return (...) =&gt; ...</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;"><span style="font-size:12px; color:var(--muted);">3 pruebas</span><a href="#" class="mono" style="font-size:12px; color:var(--accent);">Ver de nuevo →</a></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center;"><span class="mono" style="font-size:11px; color:var(--ts);">TYPESCRIPT</span><span class="mono" style="font-size:11px; color:var(--muted);">18 ago, 16:52</span></div>
+        <div class="mono" style="font-size:14px; font-weight:600;">parseQueryParams()</div>
+        <div class="mono" style="font-size:12px; color:var(--muted);">const params: Record...</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;"><span style="font-size:12px; color:var(--muted);">4 pruebas</span><a href="#" class="mono" style="font-size:12px; color:var(--accent);">Ver de nuevo →</a></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

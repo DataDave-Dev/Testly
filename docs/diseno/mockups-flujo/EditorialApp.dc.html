@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,500&family=Space+Mono:wght@400;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    :root {
+      --paper: oklch(96% 0.018 80);
+      --paper-line: oklch(89% 0.02 80);
+      --ink: oklch(24% 0.02 40);
+      --muted: oklch(46% 0.02 40);
+      --red: oklch(52% 0.16 25);
+      --highlight: oklch(90% 0.09 95);
+    }
+    .root {
+      width: 100%;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Newsreader', Georgia, serif;
+    }
+    .mono { font-family: 'Space Mono', 'Courier New', monospace; }
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .pill {
+      font-family: 'Space Mono', monospace; font-size: 12.5px; font-weight: 700;
+      padding: 7px 14px; border-radius: 999px; border: 1.5px solid var(--ink); cursor: pointer;
+    }
+    .pill.active { background: var(--ink); color: var(--paper); }
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div style="max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; align-items:baseline; padding:34px 40px 20px; border-bottom:1.5px solid var(--ink);">
+    <div style="font-style:italic; font-weight:600; font-size:24px;">Testly</div>
+    <div style="display:flex; gap:28px; align-items:baseline;">
+      <a href="#" style="font-size:14.5px;">Cómo funciona</a>
+      <a href="#" style="font-size:14.5px;">Iniciar sesión (opcional)</a>
+    </div>
+  </div>
+
+  <div style="max-width:1180px; margin:0 auto; padding:44px 40px 70px; display:grid; grid-template-columns: 1fr 280px; gap:48px;">
+
+    <div>
+      <h1 style="font-size:32px; font-weight:600; margin:0 0 6px; letter-spacing:-0.01em;">Pega tu código</h1>
+      <p style="font-size:15.5px; color:var(--muted); margin:0 0 26px; max-width:520px; line-height:1.6;">
+        Una función o un fragmento alcanza. Elegimos el lenguaje por ti, pero puedes corregirlo.
+      </p>
+
+      <div style="display:flex; gap:10px; margin-bottom:16px;">
+        <span class="pill active">Python</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">TypeScript</span>
+      </div>
+
+      <div style="position:relative; border:1.5px solid var(--ink); background:
+          repeating-linear-gradient(var(--paper), var(--paper) 27px, var(--paper-line) 28px);
+          padding:18px 22px 18px 52px;">
+        <div style="position:absolute; left:34px; top:0; bottom:0; width:1.5px; background:var(--red); opacity:0.55;"></div>
+        <div class="mono" style="font-size:13.5px; line-height:28px; white-space:pre; color:var(--ink);">
+<span style="background:var(--highlight);">def calcular_descuento(precio, porcentaje):</span>
+    if porcentaje &lt; 0 or porcentaje &gt; 100:
+        raise ValueError("porcentaje inválido")
+    return precio - (precio * porcentaje / 100)</div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:22px;">
+        <span class="mono" style="font-size:12px; color:var(--muted);">4 líneas · detectado: Python</span>
+        <button style="font-family:'Space Mono', monospace; font-weight:700; font-size:14.5px; padding:14px 26px; background:var(--paper); color:var(--ink); border:2px solid var(--ink); border-radius:50% / 40%; cursor:pointer; transform:rotate(-2deg); box-shadow: 3px 3px 0 var(--red);">
+          Generar pruebas
+        </button>
+      </div>
+    </div>
+
+    <div style="border-left:1.5px dashed var(--red); padding-left:22px; padding-top:6px;">
+      <div style="display:flex; gap:10px; margin-bottom:26px;">
+        <span style="font-style:italic; color:var(--red); font-weight:600; font-size:16px;">①</span>
+        <p style="font-size:14px; line-height:1.55; margin:0; font-style:italic; color:var(--muted);">Sin cuenta: 3 generaciones al día. Con sesión, más cuota e historial.</p>
+      </div>
+      <div style="display:flex; gap:10px; margin-bottom:26px;">
+        <span style="font-style:italic; color:var(--red); font-weight:600; font-size:16px;">②</span>
+        <p style="font-size:14px; line-height:1.55; margin:0; font-style:italic; color:var(--muted);">El lenguaje se detecta solo; corrígelo si hace falta antes de generar.</p>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <span style="font-style:italic; color:var(--red); font-weight:600; font-size:16px;">③</span>
+        <p style="font-size:14px; line-height:1.55; margin:0; font-style:italic; color:var(--muted);">Tu código se lee, nunca se ejecuta en el servidor.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
